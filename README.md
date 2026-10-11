@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # دَفتَرچه — landing
 
 The one-page site for **دَفتَرچه**, a quiet notebook for daily tasks, focus and
@@ -16,6 +15,7 @@ repository owns only the page that explains it).
 | Path | What it is |
 | --- | --- |
 | `index.html` | The whole page: markup, meta tags, and the content-security policy. |
+| `contribute.html` | صفحه همکاری و مشارکت در پروژه متن‌باز دَفتَرچه. |
 | `css/base.css` | The design foundation the notebook is printed with — the two Estedad faces, the paper palette, radii, shadows, motion and stacking tokens. |
 | `css/landing.css` | Everything that is only this page. |
 | `js/config.js` | The one place the app address is written down. |
@@ -24,7 +24,7 @@ repository owns only the page that explains it).
 | `robots.txt`, `sitemap.xml` | Crawler basics, both pointing at `https://daftrche.ir/`. |
 | `assets/` | Fonts, character sprites, app screenshots, icons, and the social card. |
 | `CNAME` | The domain the host serves this from. |
-| `.claude/skills/` | An installed UI/UX audit skill, not part of the site. See below. |
+| `.agents/skills/`, `.claude/skills/` | An installed UI/UX audit skill, not part of the site. See below. |
 
 ## Working on it locally
 
@@ -144,6 +144,3 @@ that supports a `_headers` file.
 After deploying, check the card rather than assuming it: share the URL and
 confirm the 1200×630 preview renders, since `og:image` is only fetched by the
 platform, never by the page.
-=======
-
->>>>>>> d2f25191f29e8c8b82930559f5eba47902472f86

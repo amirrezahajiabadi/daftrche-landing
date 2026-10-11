@@ -61,7 +61,11 @@
       <ul>
         <li><a href="#features">ویژگی‌ها</a></li>
         <li><a href="#why">چرا دَفتَرچه؟</a></li>
-        <li><a href="#about">درباره دَفتَرچه</a></li>
+        <li><a href="#characters">شخصیت‌ها</a></li>
+        <li><a href="#download">دانلود</a></li>
+        <li><a href="#faq">پرسش‌ها</a></li>
+        <li><a href="contribute.html">همکاری</a></li>
+        <li><a href="#about">درباره</a></li>
       </ul>
     </nav>
 
@@ -87,7 +91,20 @@
           <a class="lp-btn lp-btn-primary" href="https://app.daftrche.ir/" data-app-link>شروع با دَفتَرچه</a>
           <span class="lp-btn lp-btn-soon">نسخه اندروید <span class="lp-soon-tag">به‌زودی</span></span>
         </div>
-        <p class="lp-hero-note">رایگان، بدون حساب کاربری؛ داده‌هایت روی دستگاه خودت می‌ماند.</p>
+        <ul class="lp-hero-badges" aria-label="ویژگی‌های کلیدی دَفتَرچه">
+          <li class="lp-badge">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2a8 8 0 1 0 8 8 8 8 0 0 0-8-8zm-1 11.5-3-3 1.4-1.4 1.6 1.6 4.6-4.6 1.4 1.4z"/></svg>
+            <span>رایگان و بدون ثبت‌نام</span>
+          </li>
+          <li class="lp-badge">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="9" width="14" height="9" rx="2"/><path d="M6 9V6a4 4 0 0 1 8 0v3"/></svg>
+            <span>داده‌ها فقط روی دستگاه خودت</span>
+          </li>
+          <li class="lp-badge">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2v4M10 14v4M2 10h4M14 10h4"/></svg>
+            <span>آفلاین و همیشه در دسترس</span>
+          </li>
+        </ul>
       </div>
 
       <figure class="lp-hero-shot lp-reveal">
@@ -204,20 +221,34 @@
           <p>کارهای امروز، پیشرفت امروز و حال‌وهوای روز — همه در یک نگاه، بدون آن‌که لازم باشد چیزی را بشماری.</p>
           <div class="lp-feat-media">
             <span class="lp-shot">
-              <img src="assets/screenshots/today-list.webp" width="720" height="900" loading="lazy" alt="فهرست کارهای امروز در دَفتَرچه با اولویت، مدت تخمینی و نوار پیشرفت روز."/>
+              <img src="assets/screenshots/today-list.webp" width="720" height="900" loading="lazy" decoding="async" alt="فهرست کارهای امروز در دَفتَرچه با اولویت، مدت تخمینی و نوار پیشرفت روز."/>
             </span>
           </div>
         </article>
 
-        <article class="lp-feat lp-feat-b lp-reveal">
+        <article class="lp-feat lp-feat-b lp-reveal" id="whatNowWidget">
           <span class="lp-feat-tag">الان چی کار کنیم؟</span>
           <h3>وقتی نمی‌دانی از کجا شروع کنی.</h3>
           <p>دَفتَرچه با توجه به حال، وقت و اولویت‌ها یک کار را پیشنهاد می‌دهد — و می‌گوید چرا همان.</p>
-          <ul class="lp-receipt" aria-label="نمونهٔ پیشنهاد">
-            <li class="lp-receipt-row"><span class="lp-dot" aria-hidden="true"></span><span>حال</span><b>بد نیستم</b></li>
-            <li class="lp-receipt-row"><span class="lp-dot" aria-hidden="true"></span><span>وقت</span><b>کم</b></li>
-            <li class="lp-receipt-row"><span class="lp-dot" aria-hidden="true"></span><span>پیشنهاد</span><b>جواب ایمیل کاری</b></li>
-          </ul>
+          <div class="lp-interactive-demo" aria-label="پیش‌نمایش تعاملی پیشنهاد کار">
+            <div class="lp-mood-pills" role="tablist" aria-label="انتخاب حالِ امروز">
+              <button type="button" class="lp-mood-pill is-active" data-mood="neutral" role="tab" aria-selected="true">
+                <span>🙂</span> بد نیستم
+              </button>
+              <button type="button" class="lp-mood-pill" data-mood="tired" role="tab" aria-selected="false">
+                <span>😴</span> خسته‌ام
+              </button>
+              <button type="button" class="lp-mood-pill" data-mood="energetic" role="tab" aria-selected="false">
+                <span>⚡</span> پرانرژی‌ام
+              </button>
+            </div>
+            <ul class="lp-receipt" aria-live="polite" aria-label="نتیجه پیشنهاد">
+              <li class="lp-receipt-row"><span class="lp-dot" aria-hidden="true"></span><span>حال:</span><b class="lp-receipt-mood">بد نیستم</b></li>
+              <li class="lp-receipt-row"><span class="lp-dot" aria-hidden="true"></span><span>وقت:</span><b class="lp-receipt-time">کم (۱۵ دقیقه)</b></li>
+              <li class="lp-receipt-row"><span class="lp-dot" aria-hidden="true"></span><span>پیشنهاد:</span><b class="lp-receipt-task">جواب یک ایمیل کاری</b></li>
+              <li class="lp-receipt-row lp-receipt-reason"><span class="lp-dot" aria-hidden="true"></span><span>دلیل:</span><b class="lp-receipt-why">کاری کوتاه که بار ذهنی‌اش سبک می‌شود.</b></li>
+            </ul>
+          </div>
         </article>
 
         <article class="lp-feat lp-feat-c lp-reveal">
@@ -226,7 +257,7 @@
           <p>یک جلسهٔ تمرکز، یک کار و یک تایمر آرام. بقیهٔ فهرست تا تمام‌شدن جلسه صبر می‌کند.</p>
           <div class="lp-feat-media">
             <span class="lp-shot">
-              <img src="assets/screenshots/focus.webp" width="720" height="900" loading="lazy" alt="صفحهٔ تمرکز دَفتَرچه با کار انتخاب‌شده، مدت جلسه و دکمهٔ شروع."/>
+              <img src="assets/screenshots/focus.webp" width="720" height="900" loading="lazy" decoding="async" alt="صفحهٔ تمرکز دَفتَرچه با کار انتخاب‌شده، مدت جلسه و دکمهٔ شروع."/>
             </span>
           </div>
         </article>
@@ -249,7 +280,7 @@
   </section>
 
   <!-- ═══ Characters, and the days they are for ═══
-       One section rather than two. «هر روز شبیه روز قبل نیست» and «برای روزهایی
+       One section rather than two. «هر روز شبیه روز قبل نیست» و «برای روزهایی
        که شبیه هم نیستند» were the same sentence told twice, so the five
        companions and the four days they answer now share a heading, with the
        second line kept as the list's own heading instead of a second section. -->
@@ -261,32 +292,37 @@
       </div>
 
       <ul class="lp-char-grid">
-        <li class="lp-char-card lp-reveal">
+        <li class="lp-char-card lp-reveal is-active" role="button" tabindex="0" data-char="qorqori" aria-pressed="true" aria-label="انتخاب قورقوری">
           <span class="lp-char-frame"><svg viewBox="0 0 200 200" aria-hidden="true"><use href="assets/characters/qorqori/qorqori.svg#qorqori-happy"/></svg></span>
           <b>قورقوری</b>
           <span>راهنمای همیشگی؛ کنارت می‌ماند.</span>
         </li>
-        <li class="lp-char-card lp-reveal">
+        <li class="lp-char-card lp-reveal" role="button" tabindex="0" data-char="rizolo" aria-pressed="false" aria-label="انتخاب ریزولو">
           <span class="lp-char-frame"><svg viewBox="0 0 200 200" aria-hidden="true"><use href="assets/characters/rizolo/rizolo.svg#rizolo-energetic"/></svg></span>
           <b>ریزولو</b>
           <span>پرانرژی؛ یادت می‌اندازد راه بیفتی.</span>
         </li>
-        <li class="lp-char-card lp-reveal">
+        <li class="lp-char-card lp-reveal" role="button" tabindex="0" data-char="khabalo" aria-pressed="false" aria-label="انتخاب خوابالو">
           <span class="lp-char-frame"><svg viewBox="0 0 200 200" aria-hidden="true"><use href="assets/characters/khabalo/khabalo.svg#khabalo-cozy"/></svg></span>
           <b>خوابالو</b>
           <span>حواسش به استراحتت هست.</span>
         </li>
-        <li class="lp-char-card lp-reveal">
+        <li class="lp-char-card lp-reveal" role="button" tabindex="0" data-char="fekrbaz" aria-pressed="false" aria-label="انتخاب فکرباز">
           <span class="lp-char-frame"><svg viewBox="0 0 200 200" aria-hidden="true"><use href="assets/characters/fekrbaz/fekrbaz.svg#fekrbaz-thinking"/></svg></span>
           <b>فکرباز</b>
           <span>اهل فکر کردن؛ کمک می‌کند انتخاب کنی.</span>
         </li>
-        <li class="lp-char-card lp-reveal">
+        <li class="lp-char-card lp-reveal" role="button" tabindex="0" data-char="jingool" aria-pressed="false" aria-label="انتخاب جینگول">
           <span class="lp-char-frame"><svg viewBox="0 0 200 200" aria-hidden="true"><use href="assets/characters/jingool/jingool.svg#jingool-delighted"/></svg></span>
           <b>جینگول</b>
           <span>جرقهٔ روزهای خوب.</span>
         </li>
       </ul>
+
+      <div class="lp-char-bubble lp-reveal" id="charBubble" aria-live="polite">
+        <span class="lp-char-bubble-speaker" id="bubbleSpeaker">قورقوری می‌گوید:</span>
+        <p class="lp-char-bubble-text" id="bubbleText">«امروز قرار نیست همه‌چیز را انجام بدهی؛ فقط همین یک قدم را بردار.»</p>
+      </div>
 
       <h3 class="lp-h3 lp-days-head lp-reveal">برای روزهایی که شبیه هم نیستند</h3>
 
@@ -308,6 +344,197 @@
           <p>Focus را شروع کن.</p>
         </li>
       </ul>
+    </div>
+  </section>
+
+  <!-- ═══ Download & Platforms (دریافت و دانلود) ═══ -->
+  <section class="lp-section lp-download" id="download" aria-labelledby="downloadTitle">
+    <div class="lp-wrap">
+      <div class="lp-download-head lp-reveal">
+        <p class="lp-eyebrow">دریافت و دانلود</p>
+        <h2 class="lp-h2" id="downloadTitle">روی هر دستگاهی، همیشه در دسترستان</h2>
+        <p class="lp-sub">از نسخه تحت وب سریع و بدون نصب تا اپلیکیشن‌های بومی تلفن همراه و دسکتاپ.</p>
+      </div>
+
+      <div class="lp-download-grid">
+        <!-- ۱. وب‌اپلیکیشن (آماده و فعال) -->
+        <article class="lp-dl-card lp-dl-card-webapp lp-reveal">
+          <div class="lp-dl-top">
+            <div class="lp-dl-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <span class="lp-dl-badge lp-dl-status-active">آماده استفاده</span>
+          </div>
+          <h3 class="lp-dl-title">نسخه وب‌اپ (PWA)</h3>
+          <p class="lp-dl-desc">استفاده فوری در تمام مرورگرها بدون نیاز به نصب یا ثبت‌نام. امکان ذخیره روی صفحه اصلی گوشی و دسکتاپ.</p>
+          <div class="lp-dl-footer">
+            <a class="lp-btn lp-btn-primary lp-dl-btn" href="https://app.daftrche.ir/" data-app-link>ورود به وب‌اپ دَفتَرچه</a>
+          </div>
+        </article>
+
+        <!-- ۲. نسخه مستقیم اندروید (به‌زودی) -->
+        <article class="lp-dl-card lp-dl-card-android lp-reveal">
+          <div class="lp-dl-top">
+            <div class="lp-dl-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-1.0003s.4482-1.0003.9993-1.0003c.551 0 .9992.4486.9992 1.0003s-.4482 1.0003-.9992 1.0003m-11.046 0c-.5511 0-.9993-.4486-.9993-1.0003s.4482-1.0003.9993-1.0003c.5511 0 .9992.4486.9992 1.0003s-.4481 1.0003-.9992 1.0003m11.4045-6.02l1.9973-3.4592a.416.416 0 0 0-.1521-.5676.416.416 0 0 0-.5676.1521l-2.0223 3.503C15.5873 8.358 13.856 8 12 8s-3.5873.358-5.1368.9507L4.8409 5.4477a.416.416 0 0 0-.5676-.1521.416.416 0 0 0-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"/>
+              </svg>
+            </div>
+            <span class="lp-dl-badge lp-dl-status-soon">به‌زودی</span>
+          </div>
+          <h3 class="lp-dl-title">نسخه مستقیم اندروید</h3>
+          <p class="lp-dl-desc">فایل نصب مستقیم (APK) سازگار با انواع گوشی‌ها و تبلت‌های اندرویدی همراه با اعلان‌های یادآوری.</p>
+          <div class="lp-dl-footer">
+            <button type="button" class="lp-btn lp-btn-secondary lp-dl-btn" disabled aria-disabled="true">دریافت فایل APK</button>
+          </div>
+        </article>
+
+        <!-- ۳. مایکت (به‌زودی) -->
+        <article class="lp-dl-card lp-dl-card-myket lp-reveal">
+          <div class="lp-dl-top">
+            <div class="lp-dl-brand-header">
+              <div class="lp-dl-logo-wrap lp-dl-logo-myket-wrap">
+                <img src="assets/icons/myket-icon.png" alt="لوگوی رسمی مایکت" width="42" height="42" class="lp-dl-logo-img" loading="lazy" decoding="async">
+              </div>
+              <div class="lp-dl-brand-titles">
+                <span class="lp-dl-brand-name">مایکت</span>
+                <span class="lp-dl-brand-en">Myket</span>
+              </div>
+            </div>
+            <span class="lp-dl-badge lp-dl-badge-myket">به‌زودی</span>
+          </div>
+          <div class="lp-dl-body">
+            <div class="lp-dl-tags">
+              <span class="lp-dl-tag">اینترنت نیم‌بها</span>
+              <span class="lp-dl-tag">به‌روزرسانی خودکار</span>
+            </div>
+            <p class="lp-dl-desc">دریافت نسخه اندروید دَفتَرچه از استور مایکت با ترافیک نیم‌بهای داخلی و نصب آسان.</p>
+          </div>
+          <div class="lp-dl-footer">
+            <button type="button" class="lp-btn lp-dl-btn-myket" disabled aria-disabled="true">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M10 3v10m0 0l-4-4m4 4l4-4M3 17h14"/>
+              </svg>
+              <span>دریافت از مایکت</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- ۴. کافه‌بازار (به‌زودی) -->
+        <article class="lp-dl-card lp-dl-card-bazaar lp-reveal">
+          <div class="lp-dl-top">
+            <div class="lp-dl-brand-header">
+              <div class="lp-dl-logo-wrap lp-dl-logo-bazaar-wrap">
+                <img src="assets/icons/bazaar-icon.png" alt="لوگوی رسمی کافه‌بازار" width="42" height="42" class="lp-dl-logo-img" loading="lazy" decoding="async">
+              </div>
+              <div class="lp-dl-brand-titles">
+                <span class="lp-dl-brand-name">کافه‌بازار</span>
+                <span class="lp-dl-brand-en">Cafe Bazaar</span>
+              </div>
+            </div>
+            <span class="lp-dl-badge lp-dl-badge-bazaar">به‌زودی</span>
+          </div>
+          <div class="lp-dl-body">
+            <div class="lp-dl-tags">
+              <span class="lp-dl-tag">سپر امنیت بازار</span>
+              <span class="lp-dl-tag">به‌روزرسانی سریع</span>
+            </div>
+            <p class="lp-dl-desc">دانلود و نصب نسخه رسمی دَفتَرچه از بزرگ‌ترین استور فارسی‌زبان اندروید با تاییدیه امنیت سپر بازار.</p>
+          </div>
+          <div class="lp-dl-footer">
+            <button type="button" class="lp-btn lp-dl-btn-bazaar" disabled aria-disabled="true">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M10 3v10m0 0l-4-4m4 4l4-4M3 17h14"/>
+              </svg>
+              <span>دریافت از کافه‌بازار</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- ۵. نسخه ویندوز (به‌زودی) -->
+        <article class="lp-dl-card lp-dl-card-windows lp-reveal">
+          <div class="lp-dl-top">
+            <div class="lp-dl-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4h-13.051M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.8"/>
+              </svg>
+            </div>
+            <span class="lp-dl-badge lp-dl-status-soon">به‌زودی</span>
+          </div>
+          <h3 class="lp-dl-title">نسخه ویندوز (Desktop)</h3>
+          <p class="lp-dl-desc">برنامه مستقل ویندوز برای دسترسی سریع با کلیدهای میانبر، عملکرد کاملاً آفلاین و هماهنگ با تسک‌بار.</p>
+          <div class="lp-dl-footer">
+            <button type="button" class="lp-btn lp-btn-secondary lp-dl-btn" disabled aria-disabled="true">دانلود نسخه ویندوز</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ (پرسش‌های متداول) ═══ -->
+  <section class="lp-section lp-faq" id="faq" aria-labelledby="faqTitle">
+    <div class="lp-wrap">
+      <div class="lp-faq-head lp-reveal">
+        <p class="lp-eyebrow">پرسش‌های متداول</p>
+        <h2 class="lp-h2" id="faqTitle">چیزهایی که ممکن است بپرسی</h2>
+        <p class="lp-sub">شفاف، ساده و بدون اصطلاحات پیچیده.</p>
+      </div>
+
+      <div class="lp-faq-list">
+        <details class="lp-faq-item lp-reveal">
+          <summary class="lp-faq-summary">
+            <span>آیا برای استفاده نیاز به ثبت‌نام یا ایمیل است؟</span>
+            <svg class="lp-faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 8 4 4 4-4"/></svg>
+          </summary>
+          <div class="lp-faq-content">
+            <p>خیر. دَفتَرچه هیچ نیازی به ثبت‌نام، شماره موبایل یا ایمیل ندارد. به محض باز کردن برنامه، دفترچه آمادهٔ نوشتن کارهای تو است.</p>
+          </div>
+        </details>
+
+        <details class="lp-faq-item lp-reveal">
+          <summary class="lp-faq-summary">
+            <span>اطلاعات کارهای من کجا ذخیره می‌شود؟</span>
+            <svg class="lp-faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 8 4 4 4-4"/></svg>
+          </summary>
+          <div class="lp-faq-content">
+            <p>تمام اطلاعات (کارها، یادداشت‌ها، تنظیمات و کتاب‌ها) فقط و فقط روی حافظهٔ مرورگر در دستگاه خودت ذخیره می‌شوند. هیچ سروری داده‌های تو را دریافت یا ذخیره نمی‌کند.</p>
+          </div>
+        </details>
+
+        <details class="lp-faq-item lp-reveal">
+          <summary class="lp-faq-summary">
+            <span>چگونه دَفتَرچه را مثل یک اپلیکیشن روی گوشی نصب کنم؟</span>
+            <svg class="lp-faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 8 4 4 4-4"/></svg>
+          </summary>
+          <div class="lp-faq-content">
+            <p>کافی است با مرورگر گوشی (سافاری در آیفون یا کروم در اندروید) وارد وب‌اپ شوی و از منوی مرورگر گزینه «Add to Home Screen» (افزودن به صفحه اصلی) را انتخاب کنی. مثل یک اپلیکیشن بومی تمام‌صفحه و سریع باز می‌شود.</p>
+          </div>
+        </details>
+
+        <details class="lp-faq-item lp-reveal">
+          <summary class="lp-faq-summary">
+            <span>آیا دَفتَرچه بدون اینترنت و آفلاین کار می‌کند؟</span>
+            <svg class="lp-faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 8 4 4 4-4"/></svg>
+          </summary>
+          <div class="lp-faq-content">
+            <p>بله! پس از یک‌بار باز شدن، تمام بخش‌ها کاملاً آفلاین در دسترس هستند و حتی بدون دسترسی به اینترنت می‌توانی کارهایت را مدیریت کنی و زمان تمرکز بگیری.</p>
+          </div>
+        </details>
+
+        <details class="lp-faq-item lp-reveal">
+          <summary class="lp-faq-summary">
+            <span>آیا دَفتَرچه کاملاً رایگان است؟</span>
+            <svg class="lp-faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 8 4 4 4-4"/></svg>
+          </summary>
+          <div class="lp-faq-content">
+            <p>بله، دَفتَرچه رایگان است، هیچ تبلیغاتی ندارد و داده‌های کاربران را نمی‌فروشد. این ابزار به عنوان فضایی آرام برای کارهای شخصی ساخته شده است.</p>
+          </div>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -345,8 +572,10 @@
       <nav aria-label="دسترسی‌ها">
         <h3>دسترسی</h3>
         <ul>
+          <li><a href="#download">دریافت و دانلود</a></li>
           <li><a href="https://app.daftrche.ir/" data-app-link>ورود به وب‌اپ</a></li>
           <li><span class="lp-off">اندروید <span class="lp-soon-tag">به‌زودی</span></span></li>
+          <li><span class="lp-off">ویندوز <span class="lp-soon-tag">به‌زودی</span></span></li>
         </ul>
         <p class="lp-footer-note">وب‌اپ روی کامپیوتر، Windows، iPhone و iPad کار می‌کند.</p>
       </nav>
@@ -355,6 +584,9 @@
         <h3>بیشتر</h3>
         <ul>
           <li><a href="#why">چرا دَفتَرچه؟</a></li>
+          <li><a href="#characters">شخصیت‌ها</a></li>
+          <li><a href="#faq">پرسش‌های متداول</a></li>
+          <li><a href="contribute.html">همکاری در پروژه</a></li>
           <li><a href="#privacy">حریم خصوصی</a></li>
         </ul>
       </nav>
@@ -368,6 +600,12 @@
     </div>
   </div>
 </footer>
+
+<!-- ═══ Mobile Quick Entry Bar ═══ -->
+<aside class="lp-mobile-bar" id="lpMobileBar" aria-label="ورود سریع به برنامه">
+  <span class="lp-mobile-bar-text">امروز قرار نیست همه‌چیز را انجام بدهی.</span>
+  <a class="lp-btn lp-btn-primary lp-mobile-bar-btn" href="https://app.daftrche.ir/" data-app-link>شروع با دَفتَرچه</a>
+</aside>
 
 <script src="js/config.js"></script>
 <script src="js/landing.js" defer></script>

@@ -2,30 +2,43 @@
 node_modules/
 .npm/
 
+# Agent / Tool metadata
+.freebuff/
+
 # OS files
 .DS_Store
+.DS_Store?
+._*
 Thumbs.db
+ehthumbs.db
 Desktop.ini
+$RECYCLE.BIN/
 
-# IDE
+# IDE & Editors
 .vscode/
 .idea/
 *.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
 
-# Build output
+# Build output & Temp files
 dist/
 build/
+*.tmp
+*.bak
+*.log
 
-# Environment files
+# Environment & Secrets
 .env
-.env.local
+.env.*
 *.pem
 *.key
 
-# Python bytecode — the ui-ux-pro-max skill in .claude/skills/ is a Python CLI,
-# and running it writes machine-specific caches beside its own scripts. Those
-# caches belong to the interpreter that last ran it, never to the skill.
+# Python bytecode & caches — running CLI tools writes machine-specific caches.
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+.pytest_cache/
 
-robots.txt

@@ -57,6 +57,32 @@
   --pal-sage-accent-strong:#37522f;
   --pal-sage-accent-soft:rgba(88,129,87,.16);
   --pal-sage-on-accent:#ffffff;
+
+  /* Store & platform tokens (Official brand colors calibrated for WCAG contrast on paper) */
+  --pal-brand-bazaar:#0ea960;
+  --pal-brand-bazaar-dark:#0a7e47;
+  --pal-brand-bazaar-soft:rgba(14,169,96,.12);
+  --pal-brand-bazaar-surface:#f4fbf7;
+  --pal-brand-myket:#0071f0;
+  --pal-brand-myket-dark:#0051ab;
+  --pal-brand-myket-soft:rgba(0,113,240,.12);
+  --pal-brand-myket-surface:#f3f8fe;
+  --pal-brand-android:#15803d;
+  --pal-brand-android-soft:rgba(21,128,61,.12);
+  --pal-brand-windows:#0369a1;
+  --pal-brand-windows-soft:rgba(3,105,161,.12);
+  --pal-brand-telegram:#229ed9;
+  --pal-brand-telegram-dark:#167ba8;
+  --pal-brand-telegram-soft:rgba(34,158,217,.12);
+  --pal-brand-telegram-surface:#f2f9fd;
+  --pal-brand-x:#0f1419;
+  --pal-brand-x-dark:#000000;
+  --pal-brand-x-soft:rgba(15,20,25,.08);
+  --pal-brand-x-surface:#f7f8f9;
+  --pal-brand-github:#24292f;
+  --pal-brand-github-dark:#0d1117;
+  --pal-brand-github-soft:rgba(36,41,47,.08);
+  --pal-brand-github-surface:#f6f8fa;
 }
 
 /* ── Semantic names, pointed at paper ────────────────────────────────────
@@ -96,6 +122,8 @@
   /* ── Shadows ── */
   --shadow-1:0 4px 14px -6px rgba(122,80,35,.18);
   --shadow-2:0 24px 50px -24px rgba(122,80,35,.35);
+  --shadow-paper-floating:0 16px 36px -12px rgba(80,60,30,.14), 0 2px 6px 0 rgba(80,60,30,.05);
+  --shadow-paper-card:0 8px 20px -6px rgba(80,60,30,.10), 0 1px 3px 0 rgba(80,60,30,.04);
 
   /* ── Typography ── */
   --font-ui: 'Estedad', system-ui, sans-serif;
@@ -108,10 +136,9 @@
   --ease-out:cubic-bezier(.22,1,.36,1);
 
   /* ── Stacking order ──
-     Three layers, named so no rule has to guess a number: the sticky header,
-     the paper grain that deliberately sits above it, and the skip link, which
-     is the one thing that must clear both. */
+     Named layers for predictable ordering. */
   --z-header:50;
+  --z-mobile-bar:60;
   --z-grain:97;
   --z-skip:100;
 }
