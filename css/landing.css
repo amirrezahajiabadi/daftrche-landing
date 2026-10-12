@@ -1,13 +1,21 @@
 /* ═══ Landing — صفحهٔ معرفی دَفتَرچه ═══
-   This sheet is only loaded by index.html. It reuses the app's own design
-   system — fonts, palette table, radii, shadows and motion tokens all come from
-   css/base.css; nothing here invents a colour. The accent is the notebook's
-   green (the sage palette, the colour the guide character already is) rather
-   than the interface orange, because the landing's one job is the brand voice:
-   warm paper, deep charcoal ink, one quiet green.
+   Table of Contents:
+   1. Design Tokens & Base Theme Variables (:root)
+   2. Helpers, Containers & Skip Link (.lp-wrap, .lp-section, .lp-skip)
+   3. Header, Brand & Navigation (.lp-header, .lp-nav, .lp-menu-btn)
+   4. Hero Section, Visuals & Download Badges (.lp-hero, .lp-download-grid)
+   5. Zig-Zag Sections & Bento Features (.lp-zig, .lp-bento)
+   6. Interactive Characters Showcase (.lp-char-grid, #charBubble)
+   7. Interactive Mood Switcher & Today Flow (#whatNowWidget, .lp-flow)
+   8. Contribute Cards (.lp-contribute-card: GitHub, Telegram, X, Email)
+   9. FAQ Accordion (.lp-faq)
+   10. Footer & Privacy Notes (.lp-footer, .lp-privacy-note)
+   11. Responsive Phone Legibility (@media max-width: 720px)
+   12. Motion & Scroll Reveals (@media scripting: enabled)
+   13. Accessibility: Forced Colors, Print & Reduced Motion
 
-   All colours are palette tokens (--pal-*) mapped onto the semantic names, so
-   the same rule the app follows holds here: no raw hex inside a component. */
+   This sheet reuses the design tokens from css/base.css. Accent is sage green.
+   All colours are semantic palette tokens (--pal-*). No raw hex in components. */
 
 :root {
   /* ── Brand surface, from the paper palette ── */
@@ -1802,18 +1810,82 @@ body {
 /* Anchor targets clear the sticky header when jumped to. */
 [id] { scroll-margin-top: 84px; }
 
+/* ═══ 13. Accessibility & High Contrast ═══ */
+
+/* Universal accessible focus indicator */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+/* Forced Colors / High Contrast Mode */
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 3px solid Highlight;
+    outline-offset: 3px;
+  }
+  .lp-btn-primary {
+    border: 2px solid ButtonText;
+  }
+  .lp-char-card,
+  .lp-bento-card,
+  .lp-flow-card,
+  .lp-faq-item,
+  .lp-contribute-card {
+    border: 1px solid ButtonBorder;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .lp-header,
+  .lp-menu-btn,
+  .lp-mobile-bar,
+  .lp-skip,
+  .lp-cta,
+  .lp-char-bubble {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .lp-section {
+    padding-block: 20px !important;
+    page-break-inside: avoid;
+  }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #555;
+  }
+}
+
+/* Reduced Motion Preference */
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
   .lp-hero-char,
-  .lp-final-char { animation: none; }
+  .lp-final-char { animation: none !important; }
   /* Nothing fades and nothing waits: with less motion asked for, every block is
      simply already there — the fade is the one thing this preference is about. */
-  .lp-reveal { opacity: 1; transform: none; transition: none; }
+  .lp-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
   /* Cancels the failsafe for the same reason; it is more specific than the
      `.lp-reveal` rule above, so it has to be named. */
-  html:not(.lp-live) .lp-reveal { animation: none; }
-  .lp-skip { transition: none; }
-  .lp-btn { transition: none; }
-  .lp-faq-icon { transition: none; }
-  .lp-mobile-bar { transition: none; }
-  .lp-char-bubble.is-swapping { animation: none; }
+  html:not(.lp-live) .lp-reveal { animation: none !important; }
+  .lp-skip,
+  .lp-btn,
+  .lp-faq-icon,
+  .lp-mobile-bar,
+  .lp-char-bubble.is-swapping { animation: none !important; transition: none !important; }
 }
+
