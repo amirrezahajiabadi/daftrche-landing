@@ -25,11 +25,12 @@
 
 ## ۲. استفاده از اسکیل UI/UX Pro Max
 
-اسکیل **UI/UX Pro Max** در این مخزن در مسیرهای زیر نصب شده است:
-- `.agents/skills/ui-ux-pro-max/` (مرجع اصلی Antigravity)
-- `.claude/skills/ui-ux-pro-max/`
-- `.cursor/skills/ui-ux-pro-max/`
-- `.codex/skills/ui-ux-pro-max/`
+اسکیل **UI/UX Pro Max** در این مخزن در یک مسیر واحد نصب شده است:
+- `.agents/skills/ui-ux-pro-max/` (مرجع اصلی)
+
+پیش‌تر همین اسکیل در `.claude/`, `.cursor/` و `.codex/` هم کپی شده بود؛ چون
+هر سه نسخه تکرارِ محتوایی یکسان بودند و در `.gitignore` قرار داشتند، حذف
+شدند تا فقط یک نسخهٔ مرجع بماند.
 
 ### دستورات کار با اسکیل:
 - **ایجاد سیستم طراحی جامع برای پروژه یا صفحه جدید:**

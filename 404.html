@@ -2,20 +2,13 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8"/>
-<!-- The host answers every address that does not exist with this file, from any
-     depth — which is the reason every path below is absolute. A relative
-     `css/base.css` served for `/some/deep/path/` would resolve against
-     `/some/deep/path/css/base.css`, and the page would arrive unstyled.
-
-     No script here at all, so `script-src 'none'` is the whole of it: the page
-     needs nothing but its stylesheets, and the header simply leaves out the
-     disclosure button that js/landing.js would otherwise drive. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'"/>
+<!-- 404 page: uses absolute paths so it styles correctly at any URL depth. Scripting is disabled. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; worker-src 'none'; child-src 'none'; base-uri 'self'; form-action 'none'; object-src 'none'"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="referrer" content="strict-origin-when-cross-origin"/>
 <meta name="color-scheme" content="light"/>
 <meta name="theme-color" content="#f6efe3"/>
-<!-- A wrong address is not a page worth indexing; the links out of it are. -->
+<!-- Prevent search engines from indexing error page -->
 <meta name="robots" content="noindex, follow"/>
 <title>صفحه پیدا نشد — دَفتَرچه</title>
 <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg"/>

@@ -2,8 +2,8 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8"/>
-<!-- Content-Security-Policy matching the site invariants: no external CDN, no inline scripts/styles -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'"/>
+<!-- Content-Security-Policy: strict same-origin policy, no inline scripts or styles -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; worker-src 'none'; child-src 'none'; base-uri 'self'; form-action 'none'; object-src 'none'"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="referrer" content="strict-origin-when-cross-origin"/>
 <meta name="color-scheme" content="light"/>
@@ -51,10 +51,11 @@
 
     <nav class="lp-nav" id="lpNav" aria-label="ناوبری اصلی">
       <ul>
-        <li><a href="index.html#features">ویژگی‌ها</a></li>
         <li><a href="index.html#why">چرا دَفتَرچه؟</a></li>
+        <li><a href="index.html#features">ویژگی‌ها</a></li>
         <li><a href="index.html#characters">شخصیت‌ها</a></li>
         <li><a href="index.html#download">دانلود</a></li>
+        <li><a href="index.html#install">راهنمای نصب</a></li>
         <li><a href="index.html#faq">پرسش‌ها</a></li>
         <li><a href="contribute.html" class="is-active">همکاری</a></li>
         <li><a href="index.html#about">درباره</a></li>
@@ -198,7 +199,7 @@
 </main>
 
 <!-- ═══ Footer ═══ -->
-<footer class="lp-footer">
+<footer class="lp-footer" id="about">
   <div class="lp-wrap">
     <div class="lp-footer-grid">
       <div class="lp-footer-brand">
@@ -206,36 +207,46 @@
           <img src="assets/icons/favicon.svg" alt="" width="32" height="32"/>
           <span>دَفتَرچه</span>
         </a>
-        <p>دفترچه‌ای برای اینکه بفهمی الان چه کاری ارزش انجام دادن دارد — یک اپ وب آرام برای کارهای روزانه، تمرکز و خواندن.</p>
+        <p>دفترچه‌ای برای اینکه بفهمی الان چه کاری ارزش انجام دادن دارد — یک اپ وب آرام برای کارهای روزانه، تمرکز و خواندن. بدون حساب کاربری و بدون سرور؛ داده‌هایت روی دستگاه خودت می‌ماند.</p>
       </div>
 
       <nav aria-label="دسترسی‌ها">
         <h3>دسترسی</h3>
         <ul>
           <li><a href="index.html#download">دریافت و دانلود</a></li>
+          <li><a href="index.html#install">راهنمای نصب</a></li>
           <li><a href="https://app.daftrche.ir/" data-app-link>ورود به وب‌اپ</a></li>
           <li><a href="https://github.com/amirrezahajiabadi/daftrche" target="_blank" rel="noopener noreferrer">گیت‌هاب پروژه</a></li>
         </ul>
+        <p class="lp-footer-note">وب‌اپ روی کامپیوتر، Windows، iPhone و iPad کار می‌کند.</p>
       </nav>
 
       <nav aria-label="بیشتر">
         <h3>بیشتر</h3>
         <ul>
-          <li><a href="index.html">صفحه اصلی</a></li>
           <li><a href="index.html#why">چرا دَفتَرچه؟</a></li>
           <li><a href="index.html#characters">شخصیت‌ها</a></li>
           <li><a href="index.html#faq">پرسش‌های متداول</a></li>
           <li><a href="contribute.html">همکاری در پروژه</a></li>
+          <li><a href="index.html#privacy">حریم خصوصی</a></li>
         </ul>
       </nav>
     </div>
 
+    <p class="lp-privacy-note" id="privacy">حریم خصوصی: دَفتَرچه حساب کاربری ندارد و داده‌های تو را به سروری نمی‌فرستد. کارها، تنظیمات، کتاب‌ها و یادداشت‌ها فقط در همین مرورگر و روی همین دستگاه ذخیره می‌شوند و هر زمان می‌توانی از تنظیمات پاکشان کنی.</p>
+
     <div class="lp-footer-bottom">
       <span>© ۲۰۲۶ دَفتَرچه</span>
-      <span>پروژه متن‌باز و آزاد برای جامعه.</span>
+      <span>ساخته‌شده برای روزهایی که وقت و انرژی محدود است.</span>
     </div>
   </div>
 </footer>
+
+<!-- ═══ Mobile Quick Entry Bar ═══ -->
+<aside class="lp-mobile-bar" id="lpMobileBar" aria-label="ورود سریع به برنامه">
+  <span class="lp-mobile-bar-text">امروز قرار نیست همه‌چیز را انجام بدهی.</span>
+  <a class="lp-btn lp-btn-primary lp-mobile-bar-btn" href="https://app.daftrche.ir/" data-app-link>شروع با دَفتَرچه</a>
+</aside>
 
 <script src="js/config.js"></script>
 <script src="js/landing.js" defer></script>

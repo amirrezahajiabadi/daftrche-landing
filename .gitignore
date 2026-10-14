@@ -2,7 +2,7 @@
 node_modules/
 .npm/
 
-# AI Agent / Tool metadata & configs
+# AI Agent & Assistant metadata
 .agents/
 .claude/
 .codex/
@@ -21,6 +21,7 @@ CLAUDE.local.md
 *.zip
 *.tar.gz
 *.rar
+*.7z
 
 # OS files
 .DS_Store
@@ -34,9 +35,11 @@ $RECYCLE.BIN/
 # IDE & Editors
 .vscode/
 .idea/
+.history/
 *.swp
 *.swo
 *~
+*.orig
 *.sublime-project
 *.sublime-workspace
 
@@ -44,9 +47,13 @@ $RECYCLE.BIN/
 dist/
 build/
 screenshots/
+scratch/
 *.tmp
 *.bak
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Environment & Secrets
 .env

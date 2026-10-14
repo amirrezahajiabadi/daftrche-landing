@@ -1,6 +1,4 @@
-# Every path on this site is public: one landing page, nothing to keep out of
-# an index. The only thing this file has to do is point at the sitemap, which a
-# crawler will not find on its own.
+# Allow all crawlers and reference the sitemap
 User-agent: *
 Allow: /
 

@@ -1,46 +1,42 @@
-/* ═══ Landing — progressive enhancements ═══
-   The page is complete without this file: with scripting off it stays visible,
-   readable and navigable. Progressive features: app-entry URL synchronization,
-   smooth scroll reveals, header elevation border, mobile navigation disclosure,
-   interactive mood switcher, character dialogues, FAQ exclusive accordion,
-   and scrollspy navigation synchronization.
-   Zero external dependencies, zero build requirements, strict same-origin CSP. */
+/* ═══ Landing — Progressive Enhancements ═══
+   Features: app URL sync, smooth scroll reveals, mobile navigation menu,
+   interactive mood switcher, character dialogues, FAQ accordion,
+   install guide OS hint, and scrollspy navigation.
+   Zero external dependencies, strict same-origin CSP. */
 (function () {
   'use strict';
 
-  /* ── Arming ──
-     Arm the page immediately for CSS progressive enhancement failsafes.
-     css/landing.css hides `.lp-reveal` blocks when scripting is present,
-     and a CSS failsafe reveals them at 2.5s unless this class is active. */
+  /* Mark page as interactive for CSS failsafe rules */
   document.documentElement.classList.add('lp-live');
 
   var header = document.querySelector('.lp-header');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ── 1. App entry links ──
-     Syncs all [data-app-link] anchors with window.DAFTARCHE_APP_URL from js/config.js.
-     Strict validation ensures only valid https: URLs are applied. */
+     Sync [data-app-link] anchors with window.DAFTARCHE_APP_URL.
+     Only allows https: URLs on the trusted daftrche.ir domain. */
   function initAppLinks() {
     var appUrl = window.DAFTARCHE_APP_URL;
-    var isValidAppUrl = false;
-    if (typeof appUrl === 'string') {
-      try {
-        var parsedUrl = new URL(appUrl, window.location.href);
-        isValidAppUrl = parsedUrl.protocol === 'https:';
-      } catch (e) {
-        isValidAppUrl = false;
-      }
+    if (typeof appUrl !== 'string') return;
+    var isAllowed = false;
+    try {
+      var parsedUrl = new URL(appUrl, window.location.href);
+      isAllowed = parsedUrl.protocol === 'https:' &&
+        (parsedUrl.hostname === 'daftrche.ir' ||
+         parsedUrl.hostname.endsWith('.daftrche.ir'));
+    } catch (e) {
+      isAllowed = false;
     }
-    if (isValidAppUrl) {
+    if (isAllowed) {
       Array.prototype.forEach.call(document.querySelectorAll('[data-app-link]'), function (a) {
         a.href = appUrl;
       });
     }
   }
 
-  /* ── 2. Mobile disclosure menu ──
-     One disclosure button, aria-expanded state, auto-closes on outside tap,
-     Escape key press, link click, or resize back to desktop viewport. */
+  /* ── 2. Mobile navigation menu ──
+     Toggles the header disclosure menu on small viewports.
+     Closes on link click, outside tap, Escape key, or window resize. */
   function initMenu() {
     var menuBtn = document.querySelector('.lp-menu-btn');
     var nav = document.getElementById('lpNav');
@@ -56,7 +52,6 @@
       setOpen(header.dataset.open !== 'true');
     });
 
-    // Close menu when navigation links are clicked
     nav.addEventListener('click', function (e) {
       if (e.target.closest('a')) setOpen(false);
     });
@@ -74,13 +69,12 @@
     });
 
     window.addEventListener('resize', function () {
-      if (window.matchMedia('(min-width: 881px)').matches) setOpen(false);
+      if (window.matchMedia('(min-width: 941px)').matches) setOpen(false);
     });
   }
 
   /* ── 3. Scroll reveals ──
-     Viewport rect tests are used rather than IntersectionObserver for resilient
-     rendering across all webview environments without missing frames. */
+     Uses viewport rectangle checks for reliable reveal triggers. */
   var updateReveals = null;
   function initReveal() {
     var items = Array.prototype.slice.call(document.querySelectorAll('.lp-reveal'));
@@ -119,7 +113,7 @@
     updateReveals();
   }
 
-  /* ── 4. Interactive Mood Switcher ── */
+  /* ── 4. Interactive mood switcher widget ── */
   function initMoodSwitcher() {
     var moodWidget = document.getElementById('whatNowWidget');
     if (!moodWidget) return;
@@ -154,7 +148,7 @@
     Array.prototype.forEach.call(pills, function (btn) {
       btn.addEventListener('click', function () {
         var moodKey = btn.dataset.mood;
-        if (!moodKey || !moodData[moodKey]) return;
+        if (!moodKey || !Object.prototype.hasOwnProperty.call(moodData, moodKey)) return;
         Array.prototype.forEach.call(pills, function (p) {
           var isCurrent = p === btn;
           p.classList.toggle('is-active', isCurrent);
@@ -169,7 +163,7 @@
     });
   }
 
-  /* ── 5. Characters Showcase ── */
+  /* ── 5. Characters showcase ── */
   function initCharacters() {
     var charGrid = document.querySelector('.lp-char-grid');
     var bubble = document.getElementById('charBubble');
@@ -204,7 +198,7 @@
     var charCards = charGrid.querySelectorAll('.lp-char-card');
     var selectChar = function (card) {
       var charKey = card.dataset.char;
-      if (!charKey || !charQuotes[charKey]) return;
+      if (!charKey || !Object.prototype.hasOwnProperty.call(charQuotes, charKey)) return;
       Array.prototype.forEach.call(charCards, function (c) {
         var isTarget = c === card;
         c.classList.toggle('is-active', isTarget);
@@ -231,7 +225,7 @@
     });
   }
 
-  /* ── 6. FAQ Exclusive Accordion ── */
+  /* ── 6. FAQ exclusive accordion ── */
   function initFaq() {
     var faqItems = document.querySelectorAll('.lp-faq-item');
     if (!faqItems.length) return;
@@ -247,7 +241,34 @@
     });
   }
 
-  /* ── 7. Scroll Manager (Header hairline, reveals, mobile bar, scrollspy) ── */
+  /* ── 7. Install guide platform detection hint ── */
+  function initInstallGuide() {
+    var grid = document.querySelector('.lp-install-grid');
+    if (!grid) return;
+
+    var ua = navigator.userAgent || '';
+    var platform = (navigator.userAgentData && navigator.userAgentData.platform) ||
+      navigator.platform || '';
+    var isIos = /iPad|iPhone|iPod/.test(ua) ||
+      (platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    var isAndroid = /Android/.test(ua);
+    if (!isIos && !isAndroid) return;
+
+    var os = isIos ? 'ios' : 'android';
+    var card = grid.querySelector('.lp-install-' + os);
+    if (!card) return;
+    card.classList.add('is-current');
+
+    var head = card.querySelector('.lp-install-head');
+    if (head) {
+      var youTag = document.createElement('span');
+      youTag.className = 'lp-install-you';
+      youTag.textContent = 'برای دستگاه شما';
+      head.appendChild(youTag);
+    }
+  }
+
+  /* ── 8. Scroll manager (header border, mobile bar, scrollspy) ── */
   function initScrollManager() {
     var mobileBar = document.getElementById('lpMobileBar');
     var nav = document.getElementById('lpNav');
@@ -273,13 +294,10 @@
       sectionData = [];
       Array.prototype.forEach.call(navLinks, function (link) {
         var href = link.getAttribute('href');
-        if (!href || href.charAt(0) !== '#') return;
-        var target = null;
-        try {
-          target = document.querySelector(href);
-        } catch (e) {
-          target = null;
-        }
+        if (!href || href.charAt(0) !== '#' || href.length < 2) return;
+        var sectionId = href.substring(1);
+        if (!/^[a-zA-Z][a-zA-Z0-9_-]*$/.test(sectionId)) return;
+        var target = document.getElementById(sectionId);
         if (target) {
           sectionData.push({
             link: link,
@@ -295,7 +313,7 @@
 
     cacheSections();
 
-    // In-page navigation click handling (kept distinct from menu toggle for clear separation)
+    // Handle clicks on internal navigation links
     if (nav) {
       nav.addEventListener('click', function (e) {
         var link = e.target.closest('a');
@@ -315,33 +333,36 @@
       });
     }
 
-    // Safe hash activation without selector interpolation
-    if (window.location.hash) {
+    // Activate matching link if page loads with a valid hash
+    if (window.location.hash && window.location.hash.length > 1) {
       var rawHash = window.location.hash;
-      var initialLink = null;
-      for (var i = 0; i < navLinks.length; i++) {
-        if (navLinks[i].getAttribute('href') === rawHash) {
-          initialLink = navLinks[i];
-          break;
+      var hashId = rawHash.substring(1);
+      if (/^[a-zA-Z][a-zA-Z0-9_-]*$/.test(hashId)) {
+        var initialLink = null;
+        for (var i = 0; i < navLinks.length; i++) {
+          if (navLinks[i].getAttribute('href') === rawHash) {
+            initialLink = navLinks[i];
+            break;
+          }
         }
-      }
-      if (initialLink) {
-        setActiveLink(initialLink);
-        lastActiveLink = initialLink;
-        isClickScrolling = true;
-        setTimeout(function () { isClickScrolling = false; }, 900);
+        if (initialLink) {
+          setActiveLink(initialLink);
+          lastActiveLink = initialLink;
+          isClickScrolling = true;
+          setTimeout(function () { isClickScrolling = false; }, 900);
+        }
       }
     }
 
     var onRenderFrame = function () {
       var scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
 
-      // 1. Header elevation hairline
+      // 1. Header hairline elevation
       if (header) {
         header.classList.toggle('is-scrolled', scrollY > 8);
       }
 
-      // 2. Mobile sticky bottom bar
+      // 2. Mobile bottom bar visibility
       if (mobileBar) {
         mobileBar.classList.toggle('is-visible', scrollY > 400);
       }
@@ -360,13 +381,13 @@
         var activeItem = null;
 
         if (isAtBottom) {
-          // At the bottom of the page -> activate the final in-page section
+          // Bottom of page -> activate last section
           activeItem = sectionData[sectionData.length - 1];
         } else if (scrollY < 120) {
-          // At the top of the page (Hero) -> no section link active
+          // Top of page (Hero) -> no section link active
           activeItem = null;
         } else {
-          // Check from bottom section upward
+          // Check visible section from bottom up
           var scrollAnchor = scrollY + (window.innerHeight * 0.38);
           for (var j = sectionData.length - 1; j >= 0; j--) {
             var item = sectionData[j];
@@ -412,5 +433,6 @@
   initMoodSwitcher();
   initCharacters();
   initFaq();
+  initInstallGuide();
   initScrollManager();
 })();

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- One page, one URL — and it is the same URL that <link rel="canonical">,
-     og:url and og:image describe in index.html. Keep them in step.
-
-     No <lastmod>: it would have to be maintained by hand, and a date that moves
-     without the page moving teaches a crawler to distrust all of them. -->
+<!-- Sitemap for daftrche.ir landing and contribute pages -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://daftrche.ir/</loc>

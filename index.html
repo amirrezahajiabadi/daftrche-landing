@@ -2,25 +2,15 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8"/>
-<!-- Content-Security-Policy — the landing's own, deliberately tighter than the
-     app's: it loads nothing but same-origin files, so no CDN host is allowed.
-     There is no inline script and no inline style on this page, so neither
-     directive needs a hash to pin, and nothing here has to be kept in step with
-     a hash when the page changes. No web app manifest is declared on purpose:
-     the installable thing is the app at app.daftrche.ir, and a manifest served
-     from here could only ever install the landing under the product's name. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'"/>
+<!-- Content-Security-Policy: strict same-origin policy, no inline scripts or styles -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; worker-src 'none'; child-src 'none'; base-uri 'self'; form-action 'none'; object-src 'none'"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
 <meta name="referrer" content="strict-origin-when-cross-origin"/>
 <meta name="color-scheme" content="light"/>
 <meta name="theme-color" content="#f6efe3"/>
 <title>دَفتَرچه — بفهم الان چه کاری ارزش انجام دادن دارد</title>
 <meta name="description" content="دَفتَرچه یک دفترچهٔ آرام برای کارهای روزانه، تمرکز و خواندن است. به‌جای فهرست بلندِ کارها، کمکت می‌کند بفهمی الان کدام کار ارزش انجام دادن دارد."/>
-<!-- The page's own address, for crawlers and social cards. `daftrche.ir` is the
-     domain in CNAME and the landing owns its root; the web app is served from
-     `app.daftrche.ir`, the address js/config.js hands to every [data-app-link].
-     Keep the three in step — canonical, og:url and og:image all describe this
-     one page, and a card is only as good as the URL it points at. -->
+<!-- Canonical URL and social preview metadata -->
 <link rel="canonical" href="https://daftrche.ir/"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="دَفتَرچه"/>
@@ -63,20 +53,18 @@
 
     <nav class="lp-nav" id="lpNav" aria-label="ناوبری اصلی">
       <ul>
-        <li><a href="#features">ویژگی‌ها</a></li>
         <li><a href="#why">چرا دَفتَرچه؟</a></li>
+        <li><a href="#features">ویژگی‌ها</a></li>
         <li><a href="#characters">شخصیت‌ها</a></li>
         <li><a href="#download">دانلود</a></li>
+        <li><a href="#install">راهنمای نصب</a></li>
         <li><a href="#faq">پرسش‌ها</a></li>
         <li><a href="contribute.html">همکاری</a></li>
         <li><a href="#about">درباره</a></li>
       </ul>
     </nav>
 
-    <!-- Entry to the web app. Its destination comes from js/config.js, the one
-         place to edit — every [data-app-link] on the page follows that value.
-         The href below carries that same address on its own, so the button
-         still reaches the app with scripting switched off. -->
+    <!-- Web app entry button (fallback URL when scripting is disabled) -->
     <a class="lp-btn lp-btn-primary lp-cta" href="https://app.daftrche.ir/" data-app-link>ورود به دَفتَرچه</a>
   </div>
 </header>
@@ -469,6 +457,111 @@
     </div>
   </section>
 
+  <!-- ═══ Install Guide (Android & iOS) (#install) ═══ -->
+  <section class="lp-section lp-install" id="install" aria-labelledby="installTitle">
+    <div class="lp-wrap">
+      <div class="lp-download-head lp-reveal">
+        <p class="lp-eyebrow">راهنمای نصب</p>
+        <h2 class="lp-h2" id="installTitle">دَفتَرچه را مثل یک اپ روی گوشی نصب کن</h2>
+        <p class="lp-sub">وب‌اپ دَفتَرچه روی صفحهٔ اصلی نصب می‌شود؛ بدون استور، بدون حجم دانلود و همیشه در دسترس — حتی وقتی اینترنت نداری.</p>
+      </div>
+
+      <div class="lp-install-grid">
+        <!-- اندروید -->
+        <article class="lp-install-card lp-install-android lp-reveal">
+          <header class="lp-install-head">
+            <span class="lp-install-brand">
+              <span class="lp-install-logo" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-1.0003s.4482-1.0003.9993-1.0003c.551 0 .9992.4486.9992 1.0003s-.4482 1.0003-.9992 1.0003m-11.046 0c-.5511 0-.9993-.4486-.9993-1.0003s.4482-1.0003.9993-1.0003c.5511 0 .9992.4486.9992 1.0003s-.4481 1.0003-.9992 1.0003m11.4045-6.02l1.9973-3.4592a.416.416 0 0 0-.1521-.5676.416.416 0 0 0-.5676.1521l-2.0223 3.503C15.5873 8.358 13.856 8 12 8s-3.5873.358-5.1368.9507L4.8409 5.4477a.416.416 0 0 0-.5676-.1521.416.416 0 0 0-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"/>
+                </svg>
+              </span>
+              <span class="lp-install-brand-text">
+                <b>اندروید</b>
+                <span>کروم، سامسونگ اینترنت، اِج</span>
+              </span>
+            </span>
+            <span class="lp-install-os">Android</span>
+          </header>
+
+          <ol class="lp-steps">
+            <li>
+              <span class="lp-step-num">۱</span>
+              <p>مرورگر گوشی را باز کن و به <a href="https://app.daftrche.ir/" data-app-link>app.daftrche.ir</a> برو.</p>
+            </li>
+            <li>
+              <span class="lp-step-num">۲</span>
+              <p>از منوی سه‌نقطهٔ بالا (⋮) گزینهٔ «افزودن به صفحهٔ اصلی» یا «نصب برنامه» را بزن.</p>
+            </li>
+            <li>
+              <span class="lp-step-num">۳</span>
+              <p>در پنجرهٔ تأیید، «افزودن» یا «نصب» را انتخاب کن.</p>
+            </li>
+            <li>
+              <span class="lp-step-num">۴</span>
+              <p>از این به بعد دَفتَرچه را از آیکون روی صفحهٔ اصلی باز کن؛ تمام‌صفحه، سریع و آفلاین.</p>
+            </li>
+          </ol>
+
+          <p class="lp-install-note">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M10 6.4v4.2M10 13.4h.01"/></svg>
+            <span>گاهی کروم خودش نوار «افزودن دَفتَرچه به صفحهٔ اصلی» را پایین صفحه نشان می‌دهد؛ همان را بزن.</span>
+          </p>
+
+          <div class="lp-install-cta">
+            <a class="lp-btn lp-btn-primary lp-dl-btn" href="https://app.daftrche.ir/" data-app-link>باز کردن وب‌اپ و نصب</a>
+          </div>
+        </article>
+
+        <!-- آی‌او‌اس -->
+        <article class="lp-install-card lp-install-ios lp-reveal">
+          <header class="lp-install-head">
+            <span class="lp-install-brand">
+              <span class="lp-install-logo" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/>
+                </svg>
+              </span>
+              <span class="lp-install-brand-text">
+                <b>آیفون و آیپد</b>
+                <span>فقط با مرورگر سافاری</span>
+              </span>
+            </span>
+            <span class="lp-install-os">iOS</span>
+          </header>
+
+          <ol class="lp-steps">
+            <li>
+              <span class="lp-step-num">۱</span>
+              <p>سافاری را باز کن و به <a href="https://app.daftrche.ir/" data-app-link>app.daftrche.ir</a> برو.</p>
+            </li>
+            <li>
+              <span class="lp-step-num">۲</span>
+              <p>روی دکمهٔ اشتراک‌گذاری (مربع با فلش رو به بالا) در نوار پایین بزن.</p>
+            </li>
+            <li>
+              <span class="lp-step-num">۳</span>
+              <p>در فهرست باز شده، «افزودن به صفحهٔ اصلی» را انتخاب کن.</p>
+            </li>
+            <li>
+              <span class="lp-step-num">۴</span>
+              <p>بالا «افزودن» را بزن؛ آیکون دَفتَرچه روی صفحهٔ اصلی ساخته می‌شود.</p>
+            </li>
+          </ol>
+
+          <p class="lp-install-note">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M10 6.4v4.2M10 13.4h.01"/></svg>
+            <span>در آیفون و آیپد فقط سافاری می‌تواند دَفتَرچه را روی صفحهٔ اصلی نصب کند؛ کروم این گزینه را ندارد.</span>
+          </p>
+
+          <div class="lp-install-cta">
+            <a class="lp-btn lp-btn-primary lp-dl-btn" href="https://app.daftrche.ir/" data-app-link>باز کردن وب‌اپ و نصب</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══ FAQ (پرسش‌های متداول) ═══ -->
   <section class="lp-section lp-faq" id="faq" aria-labelledby="faqTitle">
     <div class="lp-wrap">
@@ -505,7 +598,7 @@
             <svg class="lp-faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 8 4 4 4-4"/></svg>
           </summary>
           <div class="lp-faq-content">
-            <p>کافی است با مرورگر گوشی (سافاری در آیفون یا کروم در اندروید) وارد وب‌اپ شوی و از منوی مرورگر گزینه «Add to Home Screen» (افزودن به صفحه اصلی) را انتخاب کنی. مثل یک اپلیکیشن بومی تمام‌صفحه و سریع باز می‌شود.</p>
+            <p>کافی است با مرورگر گوشی وارد وب‌اپ شوی و از منوی مرورگر گزینهٔ «افزودن به صفحهٔ اصلی» را انتخاب کنی؛ مثل یک اپلیکیشن بومی تمام‌صفحه و سریع باز می‌شود. گام‌به‌گام اندروید و آیفون را در <a href="#install">راهنمای نصب</a> آورده‌ایم.</p>
           </div>
         </details>
 
@@ -563,6 +656,7 @@
         <h3>دسترسی</h3>
         <ul>
           <li><a href="#download">دریافت و دانلود</a></li>
+          <li><a href="#install">راهنمای نصب</a></li>
           <li><a href="https://app.daftrche.ir/" data-app-link>ورود به وب‌اپ</a></li>
           <li><span class="lp-off">اندروید <span class="lp-soon-tag">به‌زودی</span></span></li>
           <li><span class="lp-off">ویندوز <span class="lp-soon-tag">به‌زودی</span></span></li>
