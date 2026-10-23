@@ -1,8 +1,8 @@
 /* ═══ Landing — Progressive Enhancements ═══
-   Features: app URL sync, smooth scroll reveals, mobile navigation menu,
-   interactive mood switcher, character dialogues, FAQ accordion,
-   install guide OS hint, and scrollspy navigation.
-   Zero external dependencies, strict same-origin CSP. */
+   Features: anti-framing (clickjacking) guard, app URL sync, live app preview
+   embed, smooth scroll reveals, mobile navigation menu, interactive mood
+   switcher, character dialogues, FAQ accordion, install guide OS hint, and
+   scrollspy navigation. Zero external dependencies, strict same-origin CSP. */
 (function () {
   'use strict';
 
@@ -12,16 +12,51 @@
   var header = document.querySelector('.lp-header');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ── 0. Anti-framing (clickjacking) guard ──
+     Meta CSP cannot deliver frame-ancestors (GitHub Pages serves no custom
+     headers), so the page defends in script. A same-origin parent frame is
+     broken out by re-navigating the top context; a foreign frame gets a
+     full-page notice covering everything else. Strictly CSP-safe: built
+     with DOM APIs and textContent, no inline styles or handlers. */
+  function initFrameGuard() {
+    if (window.top === window.self) return;
+
+    try {
+      window.top.location.replace(window.location.href);
+      return;
+    } catch (e) {
+      /* cross-origin or sandboxed parent — cover below */
+    }
+
+    document.documentElement.classList.add('lp-framed');
+    var guard = document.createElement('div');
+    guard.className = 'lp-frame-guard';
+    guard.setAttribute('role', 'alert');
+    var title = document.createElement('h2');
+    title.textContent = 'این صفحه در قالب فریم باز شده است.';
+    var text = document.createElement('p');
+    text.textContent = 'برای ادامه، نشانی این صفحه را مستقیم در مرورگر باز کن.';
+    var url = document.createElement('code');
+    url.textContent = window.location.href;
+    guard.appendChild(title);
+    guard.appendChild(text);
+    guard.appendChild(url);
+    document.body.appendChild(guard);
+  }
+
   /* ── 1. App entry links ──
-     Sync [data-app-link] anchors with window.DAFTARCHE_APP_URL.
-     Only allows https: URLs on the trusted daftrche.ir domain. */
+     Sync [data-app-link] anchors and [data-app-embed] frames with
+     window.DAFTARCHE_APP_URL. Only allows https: URLs on the standard port
+     for the trusted daftrche.ir domain. */
   function initAppLinks() {
     var appUrl = window.DAFTARCHE_APP_URL;
     if (typeof appUrl !== 'string') return;
     var isAllowed = false;
     try {
       var parsedUrl = new URL(appUrl, window.location.href);
-      isAllowed = parsedUrl.protocol === 'https:' &&
+      var isStandardPort = parsedUrl.port === '' || parsedUrl.port === '443';
+      isAllowed = isStandardPort &&
+        parsedUrl.protocol === 'https:' &&
         (parsedUrl.hostname === 'daftrche.ir' ||
          parsedUrl.hostname.endsWith('.daftrche.ir'));
     } catch (e) {
@@ -30,6 +65,10 @@
     if (isAllowed) {
       Array.prototype.forEach.call(document.querySelectorAll('[data-app-link]'), function (a) {
         a.href = appUrl;
+      });
+      Array.prototype.forEach.call(document.querySelectorAll('[data-app-embed]'), function (frame) {
+        /* Assign only on a real change so the live preview is not reloaded. */
+        if (frame.src !== appUrl) frame.src = appUrl;
       });
     }
   }
@@ -152,7 +191,7 @@
         Array.prototype.forEach.call(pills, function (p) {
           var isCurrent = p === btn;
           p.classList.toggle('is-active', isCurrent);
-          p.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
+          p.setAttribute('aria-pressed', isCurrent ? 'true' : 'false');
         });
         var data = moodData[moodKey];
         if (moodEl) moodEl.textContent = data.mood;
@@ -214,14 +253,10 @@
       }
     };
 
+    /* Cards are native <button> elements, so Enter/Space activation and focus
+       handling come from the platform. */
     Array.prototype.forEach.call(charCards, function (card) {
       card.addEventListener('click', function () { selectChar(card); });
-      card.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          selectChar(card);
-        }
-      });
     });
   }
 
@@ -427,6 +462,7 @@
   }
 
   /* ── Initialization ── */
+  initFrameGuard();
   initAppLinks();
   initMenu();
   initReveal();

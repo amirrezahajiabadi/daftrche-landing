@@ -28,18 +28,12 @@
   --pal-paper-elev:#ffffff;
   --pal-paper-text:#2e2921;
   --pal-paper-text2:#5d5548;
-  --pal-paper-muted:#8f8574;
   /* Secondary text color (WCAG AA compliant contrast) */
   --pal-paper-muted-strong:#756b5c;
   --pal-paper-border:rgba(80,60,30,.10);
   --pal-paper-border-strong:rgba(80,60,30,.22);
   --pal-paper-accent:#e05f28;
-  --pal-paper-accent-strong:#c04a18;
-  --pal-paper-accent-soft:rgba(224,95,40,.13);
-  --pal-paper-tape:rgba(255,196,120,.50);
-  --pal-paper-glass:rgba(255,252,245,.72);
   --pal-paper-glass-strong:rgba(246,239,227,.88);
-  --pal-paper-on-accent:#1e1b18;
 
   --pal-sage-accent:#4a6b44;
   --pal-sage-accent-strong:#37522f;
@@ -48,56 +42,54 @@
 
   /* Store and platform brand colors */
   --pal-brand-bazaar:#0ea960;
-  --pal-brand-bazaar-dark:#0a7e47;
+  --pal-brand-bazaar-dark:#076b3a;
+  --pal-brand-bazaar-light:#89d800;
   --pal-brand-bazaar-soft:rgba(14,169,96,.12);
   --pal-brand-bazaar-surface:#f4fbf7;
   --pal-brand-myket:#0071f0;
   --pal-brand-myket-dark:#0051ab;
+  --pal-brand-myket-light:#00b0ff;
   --pal-brand-myket-soft:rgba(0,113,240,.12);
   --pal-brand-myket-surface:#f3f8fe;
   --pal-brand-android:#15803d;
+  --pal-brand-android-light:#22c55e;
   --pal-brand-android-soft:rgba(21,128,61,.12);
   --pal-brand-ios:#1f2937;
+  --pal-brand-ios-light:#4b5563;
   --pal-brand-ios-soft:rgba(31,41,55,.10);
   --pal-brand-windows:#0369a1;
+  --pal-brand-windows-alt:#0078d4;
+  --pal-brand-windows-light:#00bcf2;
   --pal-brand-windows-soft:rgba(3,105,161,.12);
   --pal-brand-telegram:#229ed9;
   --pal-brand-telegram-dark:#167ba8;
+  --pal-brand-telegram-mid:#0088cc;
+  --pal-brand-telegram-light:#54c3f5;
   --pal-brand-telegram-soft:rgba(34,158,217,.12);
   --pal-brand-telegram-surface:#f2f9fd;
   --pal-brand-x:#0f1419;
   --pal-brand-x-dark:#000000;
+  --pal-brand-x-mid:#272c30;
+  --pal-brand-x-light:#536471;
   --pal-brand-x-soft:rgba(15,20,25,.08);
   --pal-brand-x-surface:#f7f8f9;
   --pal-brand-github:#24292f;
   --pal-brand-github-dark:#0d1117;
+  --pal-brand-github-alt:#8250df;
+  --pal-brand-github-green:#2da44e;
   --pal-brand-github-soft:rgba(36,41,47,.08);
   --pal-brand-github-surface:#f6f8fa;
+  /* Landing sage accent, light end of the brand gradient */
+  --pal-sage-accent-light:#739d6b;
 }
 
 /* ── Semantic Color Tokens ─────────────────────────────────────────────── */
+/* Maps the raw palette above (--pal-*) to the semantic names consumed by the
+   sheets. New tokens are added here only when a component actually needs them. */
 :root{
   --color-bg:var(--pal-paper-bg);
-  --color-surface:var(--pal-paper-surface);
-  --color-surface-elevated:var(--pal-paper-elev);
   --color-text-primary:var(--pal-paper-text);
-  --color-text-secondary:var(--pal-paper-text2);
-  --color-text-muted:var(--pal-paper-muted);
-  --color-text-on-accent:var(--pal-paper-on-accent);
-  --color-border:var(--pal-paper-border);
-  --color-border-strong:var(--pal-paper-border-strong);
-  --color-accent:var(--pal-paper-accent);
-  --color-accent-strong:var(--pal-paper-accent-strong);
-  --color-accent-soft:var(--pal-paper-accent-soft);
   --color-focus:var(--pal-paper-accent);
-
-  /* Legacy aliases */
-  --bg:var(--color-bg);
-  --surface:var(--color-surface);
-  --text:var(--color-text-primary);
-  --muted:var(--color-text-muted);
-  --accent:var(--color-accent);
-  --border:var(--color-border);
 
   /* Radius Scale */
   --radius-xs:8px;
@@ -128,12 +120,17 @@
   --z-mobile-bar:60;
   --z-grain:97;
   --z-skip:100;
+  /* Anti-framing notice, above every other layer */
+  --z-frame:120;
 }
 
 /* ── Base Page Styling ──────────────────────────────────────────────────── */
-body{font-family:var(--font-ui);background:var(--bg);color:var(--text);min-height:100vh;min-height:100dvh;overflow-x:hidden;transition:background var(--duration-slow),color var(--duration-slow);-webkit-tap-highlight-color:transparent;line-height:1.6}
+body{font-family:var(--font-ui);background:var(--color-bg);color:var(--color-text-primary);min-height:100vh;min-height:100dvh;
+  /* `clip` avoids creating a scroll container (which would break position:sticky);
+     `hidden` is the fallback for engines without `clip`. */
+  overflow-x:hidden;overflow-x:clip;transition:background var(--duration-slow),color var(--duration-slow);-webkit-tap-highlight-color:transparent;line-height:1.6}
 button{touch-action:manipulation;font-family:inherit}
-a,button,[role=button]{touch-action:manipulation}
+a,button{touch-action:manipulation}
 
 /* Paper grain texture overlay */
 body::after{content:'';position:fixed;inset:0;z-index:var(--z-grain);pointer-events:none;opacity:.05;

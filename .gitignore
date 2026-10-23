@@ -10,6 +10,7 @@ node_modules/
 .gemini/
 .windsurf/
 .freebuff/
+.gapcode/
 AGENTS.md
 agents.md
 GEMINI.md
@@ -46,7 +47,9 @@ $RECYCLE.BIN/
 # Build output & Temp files
 dist/
 build/
-screenshots/
+# Root-only QA folder. Anchored so assets/screenshots/ (shipped product shots)
+# is NOT ignored by this rule.
+/screenshots/
 scratch/
 *.tmp
 *.bak
