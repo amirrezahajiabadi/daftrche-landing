@@ -11,6 +11,7 @@
 
   var header = document.querySelector('.lp-header');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var refreshSectionCache = null;
 
   /* ── 0. Clean URLs normalizer ──
      On static hosts without server-side rewrite rules (e.g., direct hits to
@@ -167,11 +168,16 @@
 
     if ('IntersectionObserver' in window) {
       var revealObserver = new IntersectionObserver(function (entries, observer) {
+        var hasNew = false;
         for (var i = 0; i < entries.length; i++) {
           if (entries[i].isIntersecting) {
             entries[i].target.classList.add('is-in');
             observer.unobserve(entries[i].target);
+            hasNew = true;
           }
+        }
+        if (hasNew && typeof refreshSectionCache === 'function') {
+          refreshSectionCache();
         }
       }, {
         rootMargin: '0px 0px -6% 0px',
@@ -344,7 +350,6 @@
   }
 
   /* ── 6. FAQ exclusive accordion ── */
-  var refreshSectionCache = null;
   function initFaq() {
     var faqItems = document.querySelectorAll('.lp-faq-item');
     if (!faqItems.length) return;
@@ -1090,16 +1095,49 @@
     updateProgress();
   }
 
+  /* ── Lazy Interactive Demo & Widget Loader ──
+     Wraps interactive widgets in an IntersectionObserver with user-interaction
+     fallbacks so heavy logic (DOM binding, date formatting, dice shuffle,
+     accordion handling) does not block initial page parse and First Contentful Paint. */
+  function initLazyWidget(elementOrId, initFn, rootMargin) {
+    var el = typeof elementOrId === 'string' ? document.getElementById(elementOrId) : elementOrId;
+    if (!el) return;
+    var initialized = false;
+    var run = function () {
+      if (initialized) return;
+      initialized = true;
+      initFn();
+    };
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries[0] && entries[0].isIntersecting) {
+          observer.disconnect();
+          run();
+        }
+      }, { rootMargin: rootMargin || '150px 0px' });
+      observer.observe(el);
+    } else {
+      run();
+    }
+
+    // Safety fallback: if user touches or presses key before observer fires, run immediately
+    window.addEventListener('pointerdown', run, { once: true, passive: true });
+    window.addEventListener('keydown', run, { once: true, passive: true });
+  }
+
   /* ── Initialization ── */
   initCleanUrls();
   initFrameGuard();
   initAppLinks();
   initMenu();
   initReveal();
-  initMoodSwitcher();
-  initCharacters();
-  initFaq();
-  initInstallGuide();
   initScrollManager();
-  initHeroShowcase();
+  initInstallGuide();
+
+  // Lazy initialize interactive widgets when near viewport or on first interaction
+  initLazyWidget('heroShowcase', initHeroShowcase, '100px 0px');
+  initLazyWidget('whatNowWidget', initMoodSwitcher, '200px 0px');
+  initLazyWidget('characters', initCharacters, '200px 0px');
+  initLazyWidget('faq', initFaq, '200px 0px');
 })();
