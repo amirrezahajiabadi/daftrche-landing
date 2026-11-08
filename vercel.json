@@ -1,0 +1,26 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/contribute",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/contribute/",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/contribute.html",
+      "destination": "/",
+      "permanent": false
+    }
+  ]
+}

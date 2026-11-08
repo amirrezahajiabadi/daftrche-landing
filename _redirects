@@ -1,0 +1,18 @@
+# Cloudflare Pages / Netlify Redirects for Clean URLs
+# 1. Protect 404 error page from clean URL rewrite loop
+/404.html           /404.html    200
+
+# 2. Block direct web access to archived backup files
+/*.bak              /404         404
+
+# 3. 302 Temporary Redirect for temporarily removed collaborate page
+/contribute         /            302
+/contribute/        /            302
+/contribute.html    /            302
+
+# 4. 301 Redirect /index.html to root
+/index.html         /            301!
+
+# 5. 301 Redirect direct *.html requests to clean URLs
+/*.html             /:splat      301!
+

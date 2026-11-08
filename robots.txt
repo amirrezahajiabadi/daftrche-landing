@@ -1,5 +1,30 @@
-# Allow all crawlers and reference the sitemap
+# robots.txt for daftrche.ir
+# Content signals for search and AI crawlers
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+
+# General web crawlers
 User-agent: *
 Allow: /
+Disallow: /404.html
+Disallow: /404
+Disallow: /contribute
+Disallow: /contribute.html
+Disallow: /*.bak
 
+
+# AI search and answering engines (allowed to help users find the site)
+User-agent: PerplexityBot
+User-agent: Claude-SearchBot
+User-agent: OAI-SearchBot
+Allow: /
+
+# AI training crawlers
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: CCBot
+Disallow: /
+
+# Sitemaps and LLM documentation
 Sitemap: https://daftrche.ir/sitemap.xml
+# LLMs: https://daftrche.ir/llms.txt

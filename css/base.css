@@ -21,24 +21,44 @@
 /* ── Reset ──────────────────────────────────────────────────────────────── */
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* ── Color Palettes ─────────────────────────────────────────────────────── */
+/* ── Color Palettes — Main Theme: Daftarche (دفترچه) ─────────────────────── */
 :root{
-  --pal-paper-bg:#f6efe3;
-  --pal-paper-surface:#fffcf5;
-  --pal-paper-elev:#ffffff;
-  --pal-paper-text:#2e2921;
-  --pal-paper-text2:#5d5548;
-  /* Secondary text color (WCAG AA compliant contrast) */
-  --pal-paper-muted-strong:#756b5c;
-  --pal-paper-border:rgba(80,60,30,.10);
-  --pal-paper-border-strong:rgba(80,60,30,.22);
-  --pal-paper-accent:#e05f28;
-  --pal-paper-glass-strong:rgba(246,239,227,.88);
+  /* «دفترچه» — quiet writing paper, forest ink, and a restrained clay accent. The default app theme. */
+  --pal-daftarche-bg:#f4f0e6;
+  --pal-daftarche-surface:#fbf8f0;
+  --pal-daftarche-elev:#fffdf8;
+  --pal-daftarche-text:#292d29;
+  --pal-daftarche-text2:#444c45;
+  --pal-daftarche-muted:#5e665f;
+  --pal-daftarche-border:rgba(41,45,41,.12);
+  --pal-daftarche-border-strong:rgba(41,45,41,.24);
+  --pal-daftarche-accent:#245548;
+  --pal-daftarche-accent-strong:#183d32;
+  --pal-daftarche-accent-soft:rgba(36,85,72,.11);
+  --pal-daftarche-accent-text:#183d32;
+  --pal-daftarche-tape:rgba(200,117,77,.30);
+  --pal-daftarche-glass:rgba(251,248,240,.84);
+  --pal-daftarche-on-accent:#ffffff;
 
-  --pal-sage-accent:#4a6b44;
-  --pal-sage-accent-strong:#37522f;
-  --pal-sage-accent-soft:rgba(88,129,87,.16);
-  --pal-sage-on-accent:#ffffff;
+  /* Mapped landing aliases to the official Daftarche (دفترچه) tokens */
+  --pal-paper-bg:var(--pal-daftarche-bg);
+  --pal-paper-surface:var(--pal-daftarche-surface);
+  --pal-paper-elev:var(--pal-daftarche-elev);
+  --pal-paper-text:var(--pal-daftarche-text);
+  --pal-paper-text2:var(--pal-daftarche-text2);
+  /* Secondary text color (WCAG AA compliant contrast) */
+  --pal-paper-muted-strong:var(--pal-daftarche-muted);
+  --pal-paper-border:var(--pal-daftarche-border);
+  --pal-paper-border-strong:var(--pal-daftarche-border-strong);
+  --pal-paper-accent:var(--pal-daftarche-accent);
+  --pal-paper-glass-strong:rgba(244,240,230,.85);
+
+  /* Primary brand accent (Forest deep teal/green) */
+  --pal-sage-accent:var(--pal-daftarche-accent);
+  --pal-sage-accent-strong:var(--pal-daftarche-accent-strong);
+  --pal-sage-accent-soft:var(--pal-daftarche-accent-soft);
+  --pal-sage-on-accent:var(--pal-daftarche-on-accent);
+  --pal-sage-accent-light:#356c5e;
 
   /* Store and platform brand colors */
   --pal-brand-bazaar:#0ea960;
@@ -79,8 +99,6 @@
   --pal-brand-github-green:#2da44e;
   --pal-brand-github-soft:rgba(36,41,47,.08);
   --pal-brand-github-surface:#f6f8fa;
-  /* Landing sage accent, light end of the brand gradient */
-  --pal-sage-accent-light:#739d6b;
 }
 
 /* ── Semantic Color Tokens ─────────────────────────────────────────────── */
@@ -88,8 +106,14 @@
    sheets. New tokens are added here only when a component actually needs them. */
 :root{
   --color-bg:var(--pal-paper-bg);
+  --color-surface:var(--pal-paper-surface);
   --color-text-primary:var(--pal-paper-text);
-  --color-focus:var(--pal-paper-accent);
+  --color-text-secondary:var(--pal-paper-text2);
+  --color-text-muted:var(--pal-paper-muted-strong);
+  --color-accent:var(--pal-daftarche-accent);
+  --color-accent-soft:var(--pal-daftarche-accent-soft);
+  --color-accent-strong:var(--pal-daftarche-accent-strong);
+  --color-focus:var(--pal-daftarche-accent);
 
   /* Radius Scale */
   --radius-xs:8px;
@@ -99,21 +123,31 @@
   --radius-xl:24px;
   --radius-pill:999px;
 
-  /* Shadows */
-  --shadow-1:0 4px 14px -6px rgba(122,80,35,.18);
-  --shadow-2:0 24px 50px -24px rgba(122,80,35,.35);
-  --shadow-paper-floating:0 16px 36px -12px rgba(80,60,30,.14), 0 2px 6px 0 rgba(80,60,30,.05);
-  --shadow-paper-card:0 8px 20px -6px rgba(80,60,30,.10), 0 1px 3px 0 rgba(80,60,30,.04);
+  /* Shadows (Forest ink tints for natural, refined depth) */
+  --shadow-0:none;
+  --shadow-1:0 4px 14px -6px rgba(41,45,41,.12);
+  --shadow-2:0 20px 45px -20px rgba(41,45,41,.20);
+  --shadow-paper-floating:0 16px 36px -12px rgba(41,45,41,.10), 0 2px 6px 0 rgba(41,45,41,.04);
+  --shadow-paper-card:0 4px 16px -4px rgba(41,45,41,.08), 0 1px 3px 0 rgba(41,45,41,.03);
+  --shadow-accent:none;
 
   /* Typography */
   --font-ui: 'Estedad', system-ui, sans-serif;
   --font-personality: 'Estedad Mad', 'Estedad', system-ui, sans-serif;
 
-  /* Motion */
+  /* Motion tokens: calm, pleasant, luxurious physics */
+  --duration-instant:.08s;
   --duration-fast:.18s;
-  --duration-base:.3s;
-  --duration-slow:.5s;
+  --duration-base:.32s;
+  --duration-slow:.55s;
+  --duration-delight:.42s;
+  --duration-press:.12s;
+  --press-scale:.97;
   --ease-out:cubic-bezier(.22,1,.36,1);
+  --ease-soft:cubic-bezier(.2,.9,.28,1);
+  --ease-spring:cubic-bezier(.34,1.35,.64,1);
+  --ease-rubber:cubic-bezier(.18,.89,.32,1.15);
+  --ease-smooth:cubic-bezier(.16,1,.3,1);
 
   /* Stacking order (z-index) */
   --z-header:50;
@@ -125,6 +159,8 @@
 }
 
 /* ── Base Page Styling ──────────────────────────────────────────────────── */
+html:not(.lp-live){scroll-behavior:smooth}
+html.lp-live{scroll-behavior:auto}
 body{font-family:var(--font-ui);background:var(--color-bg);color:var(--color-text-primary);min-height:100vh;min-height:100dvh;
   /* `clip` avoids creating a scroll container (which would break position:sticky);
      `hidden` is the fallback for engines without `clip`. */
@@ -142,5 +178,5 @@ body::after{content:'';position:fixed;inset:0;z-index:var(--z-grain);pointer-eve
 /* ── Reduced Motion Preference ─────────────────────────────────────────── */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-  html{scroll-behavior:auto!important}
+  html,html:not(.lp-live),html.lp-live{scroll-behavior:auto!important}
 }
