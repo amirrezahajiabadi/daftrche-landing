@@ -1066,6 +1066,13 @@
         progFill.style.width = pct + '%';
       }
 
+      Array.prototype.forEach.call(items, function (item) {
+        var btn = item.querySelector('.lp-simple-check');
+        if (btn) {
+          btn.setAttribute('aria-pressed', item.classList.contains('is-done') ? 'true' : 'false');
+        }
+      });
+
       if (celebrateBanner) {
         if (pct === 100 && total > 0) {
           celebrateBanner.hidden = false;
