@@ -368,7 +368,7 @@
     });
   }
 
-  /* ── 7. Install guide platform detection hint ── */
+  /* ── 7. Install guide platform detection hint (iOS) ── */
   function initInstallGuide() {
     var grid = document.querySelector('.lp-install-grid');
     if (!grid) return;
@@ -378,16 +378,14 @@
       navigator.platform || '';
     var isIos = /iPad|iPhone|iPod/.test(ua) ||
       (platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-    var isAndroid = /Android/.test(ua);
-    if (!isIos && !isAndroid) return;
+    if (!isIos) return;
 
-    var os = isIos ? 'ios' : 'android';
-    var card = grid.querySelector('.lp-install-' + os);
+    var card = grid.querySelector('.lp-install-ios');
     if (!card) return;
     card.classList.add('is-current');
 
     var head = card.querySelector('.lp-install-head');
-    if (head) {
+    if (head && !head.querySelector('.lp-install-you')) {
       var youTag = document.createElement('span');
       youTag.className = 'lp-install-you';
       youTag.textContent = 'برای دستگاه شما';

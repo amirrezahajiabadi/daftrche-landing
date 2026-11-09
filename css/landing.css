@@ -2030,38 +2030,6 @@ html:not(.lp-live) .lp-nav ul { flex-direction: row; flex-wrap: wrap; background
 .lp-download-head .lp-h2 { margin-bottom: 8px; }
 .lp-download-head .lp-sub { max-width: 50ch; margin-inline: auto; }
 
-.lp-download-hero-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  margin-bottom: clamp(28px, 4.5vw, 44px);
-}
-@media (min-width: 768px) {
-  .lp-download-hero-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Legacy fallback */
-.lp-download-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
-}
-@media (min-width: 640px) {
-  .lp-download-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (min-width: 1020px) {
-  .lp-download-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .lp-dl-card-webapp {
-    grid-column: 1 / span 2;
-  }
-}
-
 .lp-dl-card {
   display: flex;
   flex-direction: column;
@@ -2075,208 +2043,66 @@ html:not(.lp-live) .lp-nav ul { flex-direction: row; flex-wrap: wrap; background
   overflow: hidden;
 }
 
-/* Flagship Cards (Hero Row) - Minimal & Compact */
-.lp-dl-card-hero {
-  gap: 12px;
-  padding: 16px 20px;
-  border-radius: var(--radius-lg);
-}
-@media (hover: hover) {
-  .lp-dl-card-hero:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(41, 45, 41, 0.07);
-    border-color: var(--pal-paper-border-strong);
-  }
-}
-.lp-dl-card-hero .lp-dl-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: var(--radius-md);
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-}
-.lp-dl-card-hero .lp-dl-icon svg {
-  width: 22px;
-  height: 22px;
-}
-.lp-dl-card-hero .lp-dl-title {
-  font-family: var(--font-personality);
-  font-size: 1.12rem;
-  font-weight: 700;
-  color: var(--lp-text);
-  line-height: 1.25;
-  margin: 0;
-}
-.lp-dl-card-hero .lp-dl-desc {
-  font-size: 13.5px;
-  line-height: 1.65;
-  color: var(--lp-text-2);
-  margin: 0;
-}
-.lp-dl-btn-hero {
-  min-height: 40px;
-  font-size: 13.5px;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border-radius: var(--radius-md);
-}
-
-/* Secondary Compact Section */
-.lp-download-sub-section {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.lp-download-sub-head {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 2px;
-}
-.lp-download-sub-line {
-  flex: 1;
-  height: 1px;
-  background: var(--lp-border);
-  opacity: 0.7;
-}
-.lp-download-sub-title {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--lp-muted);
-  letter-spacing: 0.3px;
-  white-space: nowrap;
-}
-
-.lp-download-sub-grid {
+/* ═══ Download & Platforms: Minimal Symmetrical Bento Grid ═══ */
+.lp-download-bento {
+  max-width: 960px;
+  margin-inline: auto;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 12px;
+  gap: 20px;
 }
-@media (min-width: 620px) and (max-width: 959px) {
-  .lp-download-sub-grid {
+@media (min-width: 768px) {
+  .lp-download-bento {
     grid-template-columns: repeat(2, 1fr);
-  }
-  .lp-download-sub-grid > *:last-child {
-    grid-column: 1 / -1;
-  }
-}
-@media (min-width: 960px) {
-  .lp-download-sub-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* Secondary Compact Cards */
-.lp-dl-card-sub {
-  gap: 10px;
-  padding: 13px 16px;
-  border-radius: var(--radius-md);
+/* Base Bento Card (Row 1 Primary Cards) */
+.lp-dl-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: var(--lp-paper);
+  border: 1px solid var(--lp-border);
+  box-shadow: var(--shadow-paper-card);
+  transition: transform var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast),
+              border-color var(--duration-fast);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+@media (max-width: 480px) {
+  .lp-dl-card {
+    padding: 20px 18px;
+    gap: 14px;
+  }
 }
 @media (hover: hover) {
-  .lp-dl-card-sub:hover {
+  .lp-dl-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 14px rgba(41, 45, 41, 0.05);
+    box-shadow: var(--shadow-paper-floating);
     border-color: var(--pal-paper-border-strong);
   }
 }
-.lp-dl-card-sub .lp-dl-logo-wrap,
-.lp-dl-card-sub .lp-dl-icon-sub {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-sm);
-}
-.lp-dl-card-sub .lp-dl-logo-img {
-  width: 26px;
-  height: 26px;
-}
-.lp-dl-card-sub .lp-dl-icon-sub svg {
-  width: 18px;
-  height: 18px;
-}
-.lp-dl-card-sub .lp-dl-brand-name {
-  font-size: 0.98rem;
-}
-.lp-dl-card-sub .lp-dl-brand-en {
-  font-size: 10.5px;
-}
-.lp-dl-card-sub .lp-dl-desc {
-  font-size: 12.5px;
-  line-height: 1.55;
-  color: var(--lp-text-2);
-  margin: 0;
-}
-.lp-dl-btn-sub {
-  min-height: 36px;
-  font-size: 12.5px;
-  border-radius: var(--radius-md);
-}
 
-/* Upcoming / Roadmap Cards (.lp-dl-card-soon) */
-.lp-dl-card-soon {
-  background: rgba(41, 45, 41, 0.015) !important;
-  border: 1px dashed var(--lp-border) !important;
-  box-shadow: none !important;
-  opacity: 0.88;
-}
-.lp-dl-card-soon::before {
-  display: none !important;
+/* Card 1: Web App Featured Card (Right Card in RTL) */
+.lp-dl-card-featured {
+  border: 1.5px solid rgba(36, 85, 72, 0.32);
+  background: linear-gradient(180deg, rgba(36, 85, 72, 0.035) 0%, var(--pal-paper-surface) 100%), var(--lp-rule);
+  box-shadow: 0 4px 18px -4px rgba(36, 85, 72, 0.08), var(--shadow-paper-card);
 }
 @media (hover: hover) {
-  .lp-dl-card-soon:hover {
-    opacity: 1;
-    border-color: var(--pal-paper-border-strong) !important;
-    background: var(--lp-paper) !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 14px rgba(41, 45, 41, 0.05) !important;
+  .lp-dl-card-featured:hover {
+    border-color: var(--lp-green-strong);
+    box-shadow: 0 8px 24px -4px rgba(36, 85, 72, 0.14), var(--shadow-paper-floating);
   }
 }
-.lp-dl-card-soon .lp-dl-logo-wrap,
-.lp-dl-card-soon .lp-dl-icon-sub {
-  opacity: 0.85;
-}
-.lp-dl-card-soon .lp-dl-icon {
-  background: rgba(41, 45, 41, 0.05);
-  color: var(--lp-muted);
-}
-.lp-dl-soon-status-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  width: 100%;
-  min-height: 36px;
-  padding: 6px 10px;
-  border-radius: var(--radius-md);
-  background: rgba(41, 45, 41, 0.035);
-  border: 1px solid var(--lp-border);
-  color: var(--lp-muted);
-  font-size: 12px;
-  font-weight: 600;
-  user-select: none;
-}
-.lp-dl-soon-pulse-dot {
-  display: inline-block;
-  width: 5.5px;
-  height: 5.5px;
-  border-radius: 50%;
-  background: var(--lp-muted);
-  opacity: 0.7;
-}
 
-.lp-dl-badge-dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: currentColor;
-  margin-inline-end: 4px;
-}
-
-/* Card top brand line accents - sleek 2.5px */
+/* Subtle top line brand accents (2.5px) */
 .lp-dl-card-webapp::before {
   content: "";
   position: absolute;
@@ -2293,216 +2119,301 @@ html:not(.lp-live) .lp-nav ul { flex-direction: row; flex-wrap: wrap; background
   height: 2.5px;
   background: linear-gradient(90deg, var(--pal-brand-android), var(--pal-brand-android-light));
 }
-.lp-dl-card-bazaar::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  inset-inline: 0;
-  height: 2.5px;
-  background: linear-gradient(90deg, var(--pal-brand-bazaar), var(--pal-brand-bazaar-light));
-}
-.lp-dl-card-myket::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  inset-inline: 0;
-  height: 2.5px;
-  background: linear-gradient(90deg, var(--pal-brand-myket), var(--pal-brand-myket-light));
-}
-.lp-dl-card-windows::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  inset-inline: 0;
-  height: 2.5px;
-  background: linear-gradient(90deg, var(--pal-brand-windows-alt), var(--pal-brand-windows-light));
-}
 
+/* Card Header */
 .lp-dl-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
 }
-
-/* Brand header with logo & titles */
 .lp-dl-brand-header {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  min-width: 0;
 }
-.lp-dl-logo-wrap {
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-sm);
-  background: var(--pal-paper-elev);
-  display: grid;
-  place-items: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-  border: 1px solid var(--lp-border);
-  flex-shrink: 0;
-  overflow: hidden;
-}
-.lp-dl-logo-img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  display: block;
-}
-.lp-dl-logo-bazaar-wrap {
-  border-color: rgba(14, 169, 96, 0.28);
-  background: linear-gradient(180deg, var(--pal-paper-elev) 0%, var(--pal-brand-bazaar-surface) 100%);
-}
-.lp-dl-logo-myket-wrap {
-  border-color: rgba(0, 113, 240, 0.28);
-  background: linear-gradient(180deg, var(--pal-paper-elev) 0%, var(--pal-brand-myket-surface) 100%);
-}
-.lp-dl-logo-myket-wrap .lp-dl-logo-img {
-  border-radius: 50%;
-}
-.lp-dl-brand-titles {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-.lp-dl-brand-name {
-  font-family: var(--font-personality);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--lp-text);
-  line-height: 1.25;
-}
-.lp-dl-brand-en {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--lp-muted);
-  letter-spacing: 0.3px;
-  direction: ltr;
-  text-align: right;
-}
-
 .lp-dl-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: var(--radius-md);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
   display: grid;
   place-items: center;
   background: var(--lp-green-soft);
   color: var(--lp-green-strong);
   flex-shrink: 0;
 }
-.lp-dl-icon svg { width: 22px; height: 22px; }
-
-/* Custom store card theming */
-.lp-dl-card-bazaar {
-  border-color: rgba(14, 169, 96, 0.22);
+.lp-dl-icon svg {
+  width: 24px;
+  height: 24px;
 }
-.lp-dl-card-myket {
-  border-color: rgba(0, 113, 240, 0.28);
-}
-.lp-dl-card-myket:hover {
-  border-color: var(--pal-brand-myket);
-}
-
 .lp-dl-card-android .lp-dl-icon {
   background: var(--pal-brand-android-soft);
   color: var(--pal-brand-android);
 }
-.lp-dl-card-windows .lp-dl-icon {
-  background: var(--pal-brand-windows-soft);
-  color: var(--pal-brand-windows);
+.lp-dl-brand-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.lp-dl-title {
+  font-family: var(--font-personality);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--lp-text);
+  line-height: 1.25;
+  margin: 0;
+}
+.lp-dl-subtitle {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--lp-muted);
+  letter-spacing: 0.2px;
 }
 
-/* Badges */
-.lp-dl-badge,
-.lp-dl-status {
-  font-size: 11px;
+/* Status Badges */
+.lp-dl-badge {
+  font-size: 11.5px;
   font-weight: 700;
-  padding: 3px 9px;
+  padding: 4px 10px;
   border-radius: var(--radius-pill);
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
 }
-.lp-dl-status-active {
+.lp-dl-badge-active {
   background: var(--lp-green-soft);
   color: var(--lp-green-strong);
+  border: 1px solid rgba(36, 85, 72, 0.22);
+}
+.lp-dl-badge-dot {
+  width: 6.5px;
+  height: 6.5px;
+  border-radius: 50%;
+  background: var(--lp-green-strong);
 }
 .lp-dl-status-soon {
   background: rgba(41, 45, 41, 0.04);
   color: var(--lp-muted);
   border: 1px dashed var(--lp-border);
-}
-.lp-dl-badge-bazaar {
-  color: var(--pal-brand-bazaar-dark);
-  background: var(--pal-brand-bazaar-soft);
-  border: 1px solid rgba(14, 169, 96, 0.30);
-}
-.lp-dl-badge-myket {
-  color: var(--pal-brand-myket-dark);
-  background: var(--pal-brand-myket-soft);
-  border: 1px solid rgba(0, 113, 240, 0.30);
+  font-size: 11px;
 }
 
+/* Card Body */
+.lp-dl-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+.lp-dl-desc {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--lp-text-2);
+  margin: 0;
+}
+.lp-dl-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+.lp-dl-chip {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  background: rgba(41, 45, 41, 0.04);
+  color: var(--lp-text-2);
+  border: 1px solid rgba(41, 45, 41, 0.06);
+}
+
+/* Card Footer & CTAs */
 .lp-dl-footer {
   margin-top: auto;
-  padding-top: 4px;
-}
-.lp-dl-footer .lp-btn {
+  padding-top: 8px;
   width: 100%;
 }
-.lp-dl-btn-bazaar {
-  border: 1.5px solid rgba(14, 169, 96, 0.35);
-  color: var(--pal-brand-bazaar-dark);
-  background: var(--pal-brand-bazaar-soft);
+.lp-dl-btn-main {
+  width: 100%;
+  height: 48px;
+  min-height: 48px;
+  border-radius: var(--radius-sm);
+  font-size: 14.5px;
   font-weight: 700;
-  font-size: 12.5px;
-  cursor: default;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
 }
-.lp-dl-btn-myket {
-  border: 1.5px solid rgba(0, 113, 240, 0.35);
-  color: var(--pal-brand-myket-dark);
-  background: var(--pal-brand-myket-soft);
+.lp-dl-btn-main svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Dual Actions inside Android Card */
+.lp-dl-dual-actions {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 10px;
+  width: 100%;
+}
+@media (max-width: 480px) {
+  .lp-dl-dual-actions {
+    grid-template-columns: 1fr;
+  }
+}
+.lp-dl-btn-action {
+  width: 100%;
+  height: 48px;
+  min-height: 48px;
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
   font-weight: 700;
-  font-size: 12.5px;
-  cursor: default;
-}
-a.lp-dl-btn-myket {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  cursor: pointer;
   text-decoration: none;
-  background: var(--pal-brand-myket);
-  color: #ffffff !important;
-  border-color: var(--pal-brand-myket);
-  box-shadow: none !important;
-  transition: transform 0.28s cubic-bezier(0.34, 1.35, 0.64, 1),
-              background 0.2s var(--ease-soft),
-              border-color 0.2s var(--ease-soft),
-              color 0.2s var(--ease-soft);
+}
+.lp-dl-btn-action svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.lp-dl-btn-myket-clean {
+  width: 100%;
+  height: 48px;
+  min-height: 48px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid var(--lp-border-strong);
+  color: var(--lp-text);
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: background var(--duration-fast),
+              border-color var(--duration-fast),
+              color var(--duration-fast),
+              transform var(--duration-fast);
 }
 @media (hover: hover) {
-  a.lp-dl-btn-myket:hover {
-    background: var(--pal-brand-myket-dark);
-    border-color: var(--pal-brand-myket-dark);
-    color: #ffffff !important;
+  .lp-dl-btn-myket-clean:hover {
+    background: var(--pal-paper-elev);
+    border-color: var(--lp-text);
+    color: var(--lp-text);
     transform: translateY(-2px);
-    box-shadow: none !important;
   }
 }
-a.lp-dl-btn-myket:active {
-  transform: scale(0.97) translateY(1px);
-  box-shadow: none !important;
+.lp-dl-btn-myket-clean:active {
+  transform: scale(0.98);
 }
-.lp-dl-btn svg,
-.lp-dl-btn-bazaar svg,
-.lp-dl-btn-myket svg {
-  width: 17px;
-  height: 17px;
+.lp-dl-btn-myket-clean img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  border-radius: 4px;
   flex-shrink: 0;
 }
 
-/* ═══ Install Guide (Android & iOS) ═══ */
+/* Row 2: Upcoming Platforms Bar (Sleek Horizontal Strip) */
+.lp-dl-soon-bar {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--lp-border);
+  background: var(--pal-paper-elev);
+  gap: 20px;
+}
+.lp-dl-soon-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+}
+.lp-dl-soon-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.lp-dl-soon-ico-wrap {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-xs);
+  display: grid;
+  place-items: center;
+  background: rgba(41, 45, 41, 0.04);
+  border: 1px solid var(--lp-border);
+  flex-shrink: 0;
+}
+.lp-dl-soon-bazaar img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+.lp-dl-soon-windows svg {
+  width: 17px;
+  height: 17px;
+  color: var(--lp-muted);
+}
+.lp-dl-soon-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.lp-dl-soon-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--lp-text);
+  line-height: 1.3;
+}
+.lp-dl-soon-desc {
+  font-size: 12px;
+  color: var(--lp-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lp-dl-soon-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--lp-border);
+  flex-shrink: 0;
+}
+@media (max-width: 767px) {
+  .lp-dl-soon-bar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+    gap: 14px;
+  }
+  .lp-dl-soon-divider {
+    width: 100%;
+    height: 1px;
+  }
+  .lp-dl-soon-desc {
+    white-space: normal;
+  }
+}
+
+/* ═══ Install Guide (iOS Web App) ═══ */
 .lp-install { padding-block: clamp(40px, 6vw, 84px); }
 
 .lp-install-grid {
@@ -2511,8 +2422,13 @@ a.lp-dl-btn-myket:active {
   grid-template-columns: 1fr;
   align-items: stretch;
 }
+.lp-install-single {
+  max-width: 680px;
+  margin-inline: auto;
+  grid-template-columns: 1fr;
+}
 @media (min-width: 880px) {
-  .lp-install-grid { grid-template-columns: repeat(2, 1fr); }
+  .lp-install-grid:not(.lp-install-single) { grid-template-columns: repeat(2, 1fr); }
 }
 
 .lp-install-card {
@@ -2526,14 +2442,6 @@ a.lp-dl-btn-myket:active {
   background: var(--lp-paper);
   border: 1px solid var(--lp-border);
   box-shadow: var(--shadow-paper-card);
-}
-.lp-install-android::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  inset-inline: 0;
-  height: 3.5px;
-  background: linear-gradient(90deg, var(--pal-brand-android), var(--pal-brand-android-light));
 }
 .lp-install-ios::before {
   content: "";
@@ -2567,10 +2475,6 @@ a.lp-dl-btn-myket:active {
   border: 1px solid var(--lp-border);
 }
 .lp-install-logo svg { width: 24px; height: 24px; }
-.lp-install-android .lp-install-logo {
-  background: var(--pal-brand-android-soft);
-  color: var(--pal-brand-android);
-}
 .lp-install-ios .lp-install-logo {
   background: var(--pal-brand-ios-soft);
   color: var(--pal-brand-ios);
@@ -2992,13 +2896,8 @@ a.lp-dl-btn-myket:active {
   .lp-faq-list > *:nth-child(4) { --d: 240ms; }
   .lp-faq-list > *:nth-child(5) { --d: 320ms; }
   .lp-faq-list > *:nth-child(6) { --d: 400ms; }
-  .lp-download-grid > *:nth-child(2) { --d: 80ms; }
-  .lp-download-grid > *:nth-child(3) { --d: 160ms; }
-  .lp-download-grid > *:nth-child(4) { --d: 240ms; }
-  .lp-download-grid > *:nth-child(5) { --d: 320ms; }
-  .lp-download-hero-grid > *:nth-child(2) { --d: 100ms; }
-  .lp-download-sub-grid > *:nth-child(2) { --d: 90ms; }
-  .lp-download-sub-grid > *:nth-child(3) { --d: 180ms; }
+  .lp-download-bento > *:nth-child(2) { --d: 90ms; }
+  .lp-download-bento > *:nth-child(3) { --d: 160ms; }
   .lp-install-grid > *:nth-child(2) { --d: 120ms; }
 }
 

@@ -515,10 +515,10 @@
         <p class="lp-sub">از نسخه تحت وب سریع و بدون نصب تا اپلیکیشن‌های بومی تلفن همراه و دسکتاپ.</p>
       </div>
 
-      <!-- ۱. ردیف کارت‌های پرچمدار و آماده استفاده (Tier 1 Flagship) -->
-      <div class="lp-download-hero-grid">
-        <!-- ۱.۱. وب‌اپلیکیشن (آماده و فعال) -->
-        <article class="lp-dl-card lp-dl-card-hero lp-dl-card-webapp lp-reveal">
+      <!-- کانتینر بنتو گرید ۲ ردیفه متقارن -->
+      <div class="lp-download-bento">
+        <!-- ردیف ۱، کارت راست (اول در RTL): وب‌اپلیکیشن (کارت شاخص و ویژه) -->
+        <article class="lp-dl-card lp-dl-card-featured lp-dl-card-webapp lp-reveal">
           <div class="lp-dl-top">
             <div class="lp-dl-brand-header">
               <div class="lp-dl-icon" aria-hidden="true">
@@ -530,17 +530,25 @@
               </div>
               <div class="lp-dl-brand-titles">
                 <h3 class="lp-dl-title">نسخه وب‌اپلیکیشن</h3>
-                <span class="lp-dl-brand-en">Web App (PWA)</span>
+                <span class="lp-dl-subtitle" lang="en" dir="ltr">Web App (PWA) • iOS, Mac, PC</span>
               </div>
             </div>
-            <span class="lp-dl-badge lp-dl-status-active">
+            <span class="lp-dl-badge lp-dl-badge-active">
               <span class="lp-dl-badge-dot" aria-hidden="true"></span>
               آماده استفاده
             </span>
           </div>
-          <p class="lp-dl-desc">استفاده فوری در تمام مرورگرها بدون نیاز به نصب یا ثبت‌نام؛ سازگار با موبایل و کامپیوتر.</p>
+
+          <div class="lp-dl-body">
+            <p class="lp-dl-desc">استفاده فوری در تمام مرورگرها بدون نیاز به نصب یا ثبت‌نام؛ کاملاً آفلاین و قابل افزودن به صفحهٔ اصلی آیفون و کامپیوتر.</p>
+            <div class="lp-dl-chips">
+              <span class="lp-dl-chip">بدون نیاز به نصب</span>
+              <span class="lp-dl-chip">حفظ داده‌ها روی دستگاه</span>
+            </div>
+          </div>
+
           <div class="lp-dl-footer">
-            <a class="lp-btn lp-btn-primary lp-dl-btn lp-dl-btn-hero" href="https://app.daftrche.ir/" data-app-link>
+            <a class="lp-btn lp-btn-primary lp-dl-btn-main" href="https://app.daftrche.ir/" data-app-link>
               <span>ورود به وب‌اپ دفتَرچه</span>
               <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 4l-6 6 6 6M6 10h11"/>
@@ -549,8 +557,8 @@
           </div>
         </article>
 
-        <!-- ۱.۲. نسخه مستقیم اندروید (دانلود فایل APK) -->
-        <article class="lp-dl-card lp-dl-card-hero lp-dl-card-android lp-reveal">
+        <!-- ردیف ۱، کارت چپ (دوم در RTL): اندروید (ترکیب فایل APK مستقیم + مایکت) -->
+        <article class="lp-dl-card lp-dl-card-android lp-reveal">
           <div class="lp-dl-top">
             <div class="lp-dl-brand-header">
               <div class="lp-dl-icon" aria-hidden="true">
@@ -559,169 +567,82 @@
                 </svg>
               </div>
               <div class="lp-dl-brand-titles">
-                <h3 class="lp-dl-title">نسخه مستقیم اندروید</h3>
-                <span class="lp-dl-brand-en">Direct APK • ۷.۲MB</span>
+                <h3 class="lp-dl-title">نسخه اندروید</h3>
+                <span class="lp-dl-subtitle">Android APK & Stores • ۷.۷ مگابایت</span>
               </div>
             </div>
-            <span class="lp-dl-badge lp-dl-status-active">
+            <span class="lp-dl-badge lp-dl-badge-active">
               <span class="lp-dl-badge-dot" aria-hidden="true"></span>
               آماده دانلود
             </span>
           </div>
-          <p class="lp-dl-desc">دانلود مستقیم فایل نصبی APK بدون نیاز به واسطه؛ کاملاً آفلاین و سبک برای انواع گوشی‌ها.</p>
-          <div class="lp-dl-footer">
-            <a class="lp-btn lp-btn-primary lp-dl-btn lp-dl-btn-hero" href="downloads/daftarche.apk" download="daftarche.apk">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M10 3v10m0 0l-4-4m4 4l4-4M3 17h14"/>
-              </svg>
-              <span>دانلود مستقیم فایل APK</span>
-            </a>
+
+          <div class="lp-dl-body">
+            <p class="lp-dl-desc">پکیج نصبی مستقیم و سبک اندروید؛ بدون نیاز به واسطه، همراه با امکان دریافت با ترافیک نیم‌بها از مایکت.</p>
           </div>
-        </article>
-      </div>
 
-      <!-- ۲. ردیف فشرده استورها و پلتفرم‌های تکمیلی (Tier 2 Secondary) -->
-      <div class="lp-download-sub-section lp-reveal">
-        <div class="lp-download-sub-head" aria-hidden="true">
-          <span class="lp-download-sub-line"></span>
-          <span class="lp-download-sub-title">سایر استورها و پلتفرم‌ها</span>
-          <span class="lp-download-sub-line"></span>
-        </div>
-
-        <div class="lp-download-sub-grid">
-          <!-- ۲.۱. مایکت (رسمی و فعال) -->
-          <article class="lp-dl-card lp-dl-card-sub lp-dl-card-myket">
-            <div class="lp-dl-top">
-              <div class="lp-dl-brand-header">
-                <div class="lp-dl-logo-wrap lp-dl-logo-myket-wrap">
-                  <img src="assets/icons/myket-icon.png" alt="لوگوی رسمی مایکت" width="30" height="30" class="lp-dl-logo-img" loading="lazy" decoding="async">
-                </div>
-                <div class="lp-dl-brand-titles">
-                  <span class="lp-dl-brand-name">مایکت</span>
-                  <span class="lp-dl-brand-en">Myket</span>
-                </div>
-              </div>
-              <span class="lp-dl-badge lp-dl-badge-myket">فعال</span>
-            </div>
-            <p class="lp-dl-desc">دریافت با اینترنت نیم‌بهای داخلی و به‌روزرسانی خودکار استور.</p>
-            <div class="lp-dl-footer">
-              <a class="lp-btn lp-dl-btn-myket lp-dl-btn-sub" href="https://myket.ir/app/com.Amirreza.daftarche" target="_blank" rel="noopener noreferrer">
+          <div class="lp-dl-footer">
+            <div class="lp-dl-dual-actions">
+              <a class="lp-btn lp-btn-primary lp-dl-btn-action" href="downloads/daftarche.apk" download="daftarche.apk" aria-label="دانلود مستقیم فایل APK اندروید">
                 <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M10 3v10m0 0l-4-4m4 4l4-4M3 17h14"/>
                 </svg>
+                <span>دانلود مستقیم فایل APK</span>
+              </a>
+              <a class="lp-btn lp-dl-btn-myket-clean" href="https://myket.ir/app/com.Amirreza.daftarche" target="_blank" rel="noopener noreferrer" aria-label="دریافت نسخه اندروید از مایکت">
+                <img src="assets/icons/myket-icon.png" alt="" width="20" height="20" class="lp-dl-btn-ico" loading="lazy" decoding="async">
                 <span>دریافت از مایکت</span>
               </a>
             </div>
-          </article>
+          </div>
+        </article>
 
-          <!-- ۲.۲. کافه‌بازار (به‌زودی / در انتظار انتشار) -->
-          <article class="lp-dl-card lp-dl-card-sub lp-dl-card-soon lp-dl-card-bazaar">
-            <div class="lp-dl-top">
-              <div class="lp-dl-brand-header">
-                <div class="lp-dl-logo-wrap lp-dl-logo-bazaar-wrap">
-                  <img src="assets/icons/bazaar-icon.png" alt="لوگوی رسمی کافه‌بازار" width="30" height="30" class="lp-dl-logo-img" loading="lazy" decoding="async">
-                </div>
-                <div class="lp-dl-brand-titles">
-                  <span class="lp-dl-brand-name">کافه‌بازار</span>
-                  <span class="lp-dl-brand-en">Cafe Bazaar</span>
-                </div>
+        <!-- ردیف ۲: نوار افقی پلتفرم‌های آینده (Row 2 Bento Strip) -->
+        <div class="lp-dl-soon-bar lp-reveal">
+          <div class="lp-dl-soon-item">
+            <div class="lp-dl-soon-main">
+              <div class="lp-dl-soon-ico-wrap lp-dl-soon-bazaar" aria-hidden="true">
+                <img src="assets/icons/bazaar-icon.png" alt="" width="22" height="22" class="lp-dl-soon-img" loading="lazy" decoding="async">
               </div>
-              <span class="lp-dl-badge lp-dl-status-soon">به‌زودی</span>
-            </div>
-            <p class="lp-dl-desc">در حال بررسی و طی فرآیند تایید در کافه‌بازار.</p>
-            <div class="lp-dl-footer">
-              <div class="lp-dl-soon-status-pill" role="status" aria-label="وضعیت: در انتظار انتشار در بازار">
-                <span class="lp-dl-soon-pulse-dot" aria-hidden="true"></span>
-                <span>در انتظار انتشار</span>
+              <div class="lp-dl-soon-text">
+                <span class="lp-dl-soon-title">کافه‌بازار</span>
+                <span class="lp-dl-soon-desc">در حال بررسی و طی فرآیند انتشار رسمی</span>
               </div>
             </div>
-          </article>
+            <span class="lp-dl-badge lp-dl-status-soon">در انتظار انتشار</span>
+          </div>
 
-          <!-- ۲.۳. نسخه ویندوز (به‌زودی / نقشه راه) -->
-          <article class="lp-dl-card lp-dl-card-sub lp-dl-card-soon lp-dl-card-windows">
-            <div class="lp-dl-top">
-              <div class="lp-dl-brand-header">
-                <div class="lp-dl-icon lp-dl-icon-sub" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4h-13.051M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.8"/>
-                  </svg>
-                </div>
-                <div class="lp-dl-brand-titles">
-                  <span class="lp-dl-brand-name">نسخه ویندوز</span>
-                  <span class="lp-dl-brand-en">Windows Desktop</span>
-                </div>
+          <span class="lp-dl-soon-divider" aria-hidden="true"></span>
+
+          <div class="lp-dl-soon-item">
+            <div class="lp-dl-soon-main">
+              <div class="lp-dl-soon-ico-wrap lp-dl-soon-windows" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4h-13.051M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.8"/>
+                </svg>
               </div>
-              <span class="lp-dl-badge lp-dl-status-soon">به‌زودی</span>
-            </div>
-            <p class="lp-dl-desc">برنامه مستقل دسکتاپ با کلیدهای میانبر سریع و کارکرد آفلاین.</p>
-            <div class="lp-dl-footer">
-              <div class="lp-dl-soon-status-pill" role="status" aria-label="وضعیت: در دست آماده‌سازی">
-                <span class="lp-dl-soon-pulse-dot" aria-hidden="true"></span>
-                <span>در دست آماده‌سازی</span>
+              <div class="lp-dl-soon-text">
+                <span class="lp-dl-soon-title">نسخه دسکتاپ (Windows)</span>
+                <span class="lp-dl-soon-desc">برنامه مستقل ویندوز با میانبرهای سریع و کارکرد آفلاین</span>
               </div>
             </div>
-          </article>
+            <span class="lp-dl-badge lp-dl-status-soon">به‌زودی</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ Install Guide (Android & iOS) (#install) ═══ -->
+  <!-- ═══ Install Guide (iOS) (#install) ═══ -->
   <section class="lp-section lp-install" id="install" aria-labelledby="installTitle">
     <div class="lp-wrap">
       <div class="lp-download-head lp-reveal">
-        <p class="lp-eyebrow">راهنمای نصب</p>
-        <h2 class="lp-h2" id="installTitle">دفتَرچه را مثل یک اپ روی گوشی نصب کن</h2>
-        <p class="lp-sub">وب‌اپ دفتَرچه روی صفحهٔ اصلی نصب می‌شود؛ بدون استور، بدون حجم دانلود و همیشه در دسترس — حتی وقتی اینترنت نداری.</p>
+        <p class="lp-eyebrow">راهنمای نصب وب‌اپ</p>
+        <h2 class="lp-h2" id="installTitle">افزودن دفتَرچه به صفحهٔ اصلی آیفون و آیپد</h2>
+        <p class="lp-sub">وب‌اپ دفتَرچه را از طریق سافاری به صفحهٔ اصلی اضافه کن تا مثل یک اپلیکیشن مستقل، سریع و بدون نیاز به اپ‌استور کار کند.</p>
       </div>
 
-      <div class="lp-install-grid">
-        <!-- اندروید -->
-        <article class="lp-install-card lp-install-android lp-reveal">
-          <header class="lp-install-head">
-            <span class="lp-install-brand">
-              <span class="lp-install-logo" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-1.0003s.4482-1.0003.9993-1.0003c.551 0 .9992.4486.9992 1.0003s-.4482 1.0003-.9992 1.0003m-11.046 0c-.5511 0-.9993-.4486-.9993-1.0003s.4482-1.0003.9993-1.0003c.5511 0 .9992.4486.9992 1.0003s-.4481 1.0003-.9992 1.0003m11.4045-6.02l1.9973-3.4592a.416.416 0 0 0-.1521-.5676.416.416 0 0 0-.5676.1521l-2.0223 3.503C15.5873 8.358 13.856 8 12 8s-3.5873.358-5.1368.9507L4.8409 5.4477a.416.416 0 0 0-.5676-.1521.416.416 0 0 0-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"/>
-                </svg>
-              </span>
-              <span class="lp-install-brand-text">
-                <b>اندروید</b>
-                <span>کروم، سامسونگ اینترنت، اِج</span>
-              </span>
-            </span>
-            <span class="lp-install-os">Android</span>
-          </header>
-
-          <ol class="lp-steps">
-            <li>
-              <span class="lp-step-num">۱</span>
-              <p>مرورگر گوشی را باز کن و به <a href="https://app.daftrche.ir/" data-app-link>app.daftrche.ir</a> برو.</p>
-            </li>
-            <li>
-              <span class="lp-step-num">۲</span>
-              <p>از منوی سه‌نقطهٔ بالا (⋮) گزینهٔ «افزودن به صفحهٔ اصلی» یا «نصب برنامه» را بزن.</p>
-            </li>
-            <li>
-              <span class="lp-step-num">۳</span>
-              <p>در پنجرهٔ تأیید، «افزودن» یا «نصب» را انتخاب کن.</p>
-            </li>
-            <li>
-              <span class="lp-step-num">۴</span>
-              <p>از این به بعد دفتَرچه را از آیکون روی صفحهٔ اصلی باز کن؛ تمام‌صفحه، سریع و آفلاین.</p>
-            </li>
-          </ol>
-
-          <p class="lp-install-note">
-            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M10 6.4v4.2M10 13.4h.01"/></svg>
-            <span>گاهی کروم خودش نوار «افزودن دفتَرچه به صفحهٔ اصلی» را پایین صفحه نشان می‌دهد؛ همان را بزن.</span>
-          </p>
-
-          <div class="lp-install-cta">
-            <a class="lp-btn lp-btn-primary lp-dl-btn" href="https://app.daftrche.ir/" data-app-link>باز کردن وب‌اپ و نصب</a>
-          </div>
-        </article>
-
+      <div class="lp-install-grid lp-install-single">
         <!-- آی‌او‌اس -->
         <article class="lp-install-card lp-install-ios lp-reveal">
           <header class="lp-install-head">
@@ -733,7 +654,7 @@
               </span>
               <span class="lp-install-brand-text">
                 <b>آیفون و آیپد</b>
-                <span>فقط با مرورگر سافاری</span>
+                <span>فقط با مرورگر سافاری (Safari)</span>
               </span>
             </span>
             <span class="lp-install-os">iOS</span>
@@ -746,25 +667,25 @@
             </li>
             <li>
               <span class="lp-step-num">۲</span>
-              <p>روی دکمهٔ اشتراک‌گذاری (مربع با فلش رو به بالا) در نوار پایین بزن.</p>
+              <p>روی دکمهٔ اشتراک‌گذاری (Share — مربع با فلش رو به بالا) در نوار پایین بزن.</p>
             </li>
             <li>
               <span class="lp-step-num">۳</span>
-              <p>در فهرست باز شده، «افزودن به صفحهٔ اصلی» را انتخاب کن.</p>
+              <p>در فهرست باز شده، «افزودن به صفحهٔ اصلی» (Add to Home Screen) را انتخاب کن.</p>
             </li>
             <li>
               <span class="lp-step-num">۴</span>
-              <p>بالا «افزودن» را بزن؛ آیکون دفتَرچه روی صفحهٔ اصلی ساخته می‌شود.</p>
+              <p>در بالای صفحه «افزودن» (Add) را بزن؛ آیکون دفتَرچه روی صفحهٔ اصلی دستگاه ساخته می‌شود.</p>
             </li>
           </ol>
 
           <p class="lp-install-note">
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M10 6.4v4.2M10 13.4h.01"/></svg>
-            <span>در آیفون و آیپد فقط سافاری می‌تواند دفتَرچه را روی صفحهٔ اصلی نصب کند؛ کروم این گزینه را ندارد.</span>
+            <span>در سیستم‌عامل iOS فقط مرورگر سافاری اجازه افزودن وب‌اپ به صفحهٔ اصلی را می‌دهد. کاربران اندروید می‌توانند مستقیماً از <a href="#download">نسخه نصبی APK</a> استفاده کنند.</span>
           </p>
 
           <div class="lp-install-cta">
-            <a class="lp-btn lp-btn-primary lp-dl-btn" href="https://app.daftrche.ir/" data-app-link>باز کردن وب‌اپ و نصب</a>
+            <a class="lp-btn lp-btn-primary lp-dl-btn" href="https://app.daftrche.ir/" data-app-link>باز کردن وب‌اپ در سافاری</a>
           </div>
         </article>
       </div>
@@ -813,16 +734,6 @@
               <li><strong>پشتیبان جامع ZIP:</strong> بسته فشرده کامل شامل کل داده‌ها به همراه فایل‌های کتابخانه PDF و یادداشت‌های کتاب‌ها.</li>
             </ul>
             <p>در هر زمان می‌توانی از بخش تنظیمات تنها با یک کلیک خروجی بگیری و روی هر دستگاه یا مرورگر دیگر با زدن دکمهٔ «بازیابی (Restore)»، اطلاعاتت را مثل روز اول بازگردانی. داده‌ها تماماً متعلق به خودت هستند و هیچ قفل نرم‌افزاری (Zero Lock-in) وجود ندارد.</p>
-          </div>
-        </details>
-
-        <details class="lp-faq-item lp-reveal">
-          <summary class="lp-faq-summary">
-            <span>چگونه دفتَرچه را مثل یک اپلیکیشن روی گوشی نصب کنم؟</span>
-            <svg class="lp-faq-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 8 4 4 4-4"/></svg>
-          </summary>
-          <div class="lp-faq-content">
-            <p>کافی است با مرورگر گوشی وارد وب‌اپ شوی و از منوی مرورگر گزینهٔ «افزودن به صفحهٔ اصلی» را انتخاب کنی؛ مثل یک اپلیکیشن بومی تمام‌صفحه و سریع باز می‌شود. گام‌به‌گام اندروید و آیفون را در <a href="#install">راهنمای نصب</a> آورده‌ایم.</p>
           </div>
         </details>
 
