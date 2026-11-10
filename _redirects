@@ -5,13 +5,13 @@
 # 2. Block direct web access to archived backup files
 /*.bak              /404         404
 
-# 3. 302 Temporary Redirect for temporarily removed collaborate page
-/contribute         /            302
-/contribute/        /            302
-/contribute.html    /            302
-
-# 3b. 301 Redirect old APK name to official APK
+# 3. 301 Redirect old APK name to official APK
 /downloads/app-release.apk   /downloads/daftarche.apk   301!
+
+# 3b. Redirect contribute paths to main landing anchor
+/contribute         /#contribute    301!
+/contribute/        /#contribute    301!
+/contribute.html    /#contribute    301!
 
 # 4. 301 Redirect /index.html to root
 /index.html         /            301!

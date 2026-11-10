@@ -8,23 +8,23 @@
       "permanent": true
     },
     {
+      "source": "/downloads/app-release.apk",
+      "destination": "/downloads/daftarche.apk",
+      "permanent": true
+    },
+    {
       "source": "/contribute",
-      "destination": "/",
-      "permanent": false
+      "destination": "/#contribute",
+      "permanent": true
     },
     {
       "source": "/contribute/",
-      "destination": "/",
-      "permanent": false
+      "destination": "/#contribute",
+      "permanent": true
     },
     {
       "source": "/contribute.html",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/downloads/app-release.apk",
-      "destination": "/downloads/daftarche.apk",
+      "destination": "/#contribute",
       "permanent": true
     }
   ]

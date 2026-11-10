@@ -7,8 +7,6 @@ User-agent: *
 Allow: /
 Disallow: /404.html
 Disallow: /404
-Disallow: /contribute
-Disallow: /contribute.html
 Disallow: /*.bak
 
 

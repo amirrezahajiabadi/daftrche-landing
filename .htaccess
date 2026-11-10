@@ -2,11 +2,11 @@
   RewriteEngine On
   RewriteBase /
 
-  # 302 Temporary Redirect for temporarily removed collaborate page
-  RewriteRule ^contribute(/|\.html)?$ / [R=302,L]
-
   # 301 Redirect old APK name to official APK
   RewriteRule ^downloads/app-release\.apk$ /downloads/daftarche.apk [R=301,L]
+
+  # 301 Redirect contribute paths to landing anchor
+  RewriteRule ^contribute(/|\.html)?$ /#contribute [R=301,NE,L]
 
   # 301 Redirect /index.html to /
   RewriteCond %{THE_REQUEST} \s/index\.html[?\s] [NC]
